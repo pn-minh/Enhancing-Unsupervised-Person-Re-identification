@@ -1,0 +1,14 @@
+/__pycache__
+/.idea
+/data
+/logs/dbscan/market2duke/*.tar
+/logs/dbscan/market2duke copy/*.tar
+/logs/dbscan/market2dukev2/*.tar
+/logs/dbscan/market2dukev3/*.tar
+/logs/pretrained/marke2duke/*.tar
+/logs/pretrained/market2cuhk03/*.tar
+/logs/pretrained/market2duke/*.tar
+/logs/pretrained/market1501cuhk03/*.tar
+/outstIDK
+/logs/somthingidk
+

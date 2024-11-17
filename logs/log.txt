@@ -1,0 +1,12 @@
+==========
+Args:Namespace(dataset_source='market1501', dataset_target='dukemtmc', batch_size=64, workers=4, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=0.00035, momentum=0.9, weight_decay=0.0005, warmup_step=10, milestones=[40, 70], resume='', evaluate=False, eval_step=20, rerank=False, epochs=60, iters=200, seed=1, print_freq=100, margin=0.0, data_dir='/home/phong/Desktop/UCF-main/data', logs_dir='/home/phong/Desktop/UCF-main/logs')
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------

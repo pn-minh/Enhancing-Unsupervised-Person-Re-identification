@@ -815,10 +815,10 @@ def cal_gal_querry_sim_maxtrix(weights, bias, gallery_folder, query_folder, tran
     query_dataloader = DataLoader(query_dataset, batch_size=batch_size, shuffle=False)
 
     # Example usage
-    extract_and_save_features(model1, gallery_dataloader, save_path='/hgst/longdn/UCF-main/logs/somthingidkgallery_features.npy')
-    extract_and_save_features(model1, query_dataloader, save_path='/hgst/longdn/UCF-main/logs/somthingidkquery_features.npy')
-    gallery_feature_dataset = FeatureDataset('/hgst/longdn/UCF-main/logs/somthingidkgallery_features.npy')
-    query_feature_dataset = FeatureDataset('/hgst/longdn/UCF-main/logs/somthingidkquery_features.npy')
+    extract_and_save_features(model1, gallery_dataloader, save_path='/hgst/longdn/UCF-main/logs/somthingidk/gallery_features.npy')
+    extract_and_save_features(model1, query_dataloader, save_path='/hgst/longdn/UCF-main/logs/somthingidk/query_features.npy')
+    gallery_feature_dataset = FeatureDataset('/hgst/longdn/UCF-main/logs/somthingidk/gallery_features.npy')
+    query_feature_dataset = FeatureDataset('/hgst/longdn/UCF-main/logs/somthingidk/query_features.npy')
 
     dataset1 = query_feature_dataset
     dataset2 = gallery_feature_dataset

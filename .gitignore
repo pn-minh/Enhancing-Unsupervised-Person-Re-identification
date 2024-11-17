@@ -10,6 +10,7 @@
 /logs/pretrained/market2duke/*.tar
 /logs/pretrained/market1501cuhk03/*.tar
 /outstIDK
+/logs/somthingidk
 gallery_features.npy
 query_features.npy
 

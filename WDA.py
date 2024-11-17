@@ -692,6 +692,163 @@ class TensorRowDataset(Dataset):
         # Return the idx-th row as a tensor of size (1000,)
         return self.data_tensor[idx], self.filler
 
+def create_dataset(records, transform,model1):
+    dataset = Dataset(records, transform=transform)
+    data_loader = DataLoader(dataset, batch_size=32, shuffle=True, num_workers=4)
+
+    for i, item in enumerate(data_loader):
+        imgs, labels= item[0], item[1]
+        outputs = extract_cnn_feature(model1, imgs)
+        print(outputs.shape)
+        break
+    data_loader = DataLoader(dataset, batch_size= 32, shuffle=True)
+    features = []
+    for i, item in enumerate(data_loader):
+        imgs, labels= item[0], item[1]
+        outputs = extract_cnn_feature(model1, imgs)
+        features= outputs
+        tensor1 = outputs[0]
+        tensor2 = outputs[1]
+        similarity = cosine_similarity(tensor1, tensor2)
+        print(f"Cosine Similarity: {similarity}")
+        break
+    sim_matrix = torch.zeros(len(features), len(features))
+    for i in range(len(features)):
+        for j in range(i, len(features)): 
+            sim_matrix[i][j] = cosine_similarity(features[i], features[j])
+
+            sim_matrix[j][i] = sim_matrix[i][j]
+    k = 5
+    neighbors = k_nearest_neighbors(sim_matrix, k)
+    sorted_data = sorted([(img, label, cam) for img, label, cam in dataset], key=lambda x: x[1])
+    dataset = sorted_data
+    batch_size = 16
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
+    extract_and_save_features(model1, dataloader, save_path='/hgst/longdn/UCF-main/outstIDK/duke_features.npy')
+    data = np.load('/hgst/longdn/UCF-main/outstIDK/duke_features.npy', allow_pickle=True).item()
+    features, labels, cam_angles = data['features'], data['labels'], data['cam_angles']
+    feature_dataset = FeatureDataset('/hgst/longdn/UCF-main/outstIDK/duke_features.npy')
+    triplet_dataset = TripletDataset(feature_dataset)
+    return feature_dataset, triplet_dataset
+def cal_weights_bias(feature_dataset, triplet_dataset):
+    # Now you can use this dataset with a DataLoader for further processing or model training
+    dataset1 = feature_dataset
+    dataset2 = feature_dataset
+    sim_matrix = compute_cosine_similarity_between_datasets(dataset1, dataset2, batch_size=256)
+    print(sim_matrix[0][1])
+    k = 7
+    neighbors = k_nearest_neighbors(sim_matrix, k)
+    refined_feats = refined_features(feature_dataset= feature_dataset, sim_matrix= sim_matrix, neighbors= neighbors)
+    positive_instances = []
+
+    negative_instances = []
+    for i, item in enumerate(triplet_dataset):
+
+        # print(item) 
+
+        anchor_index = item[0][0]
+
+        pos_index = item[0][1]
+
+        neg_index = item[0][2]
+
+        # print(anchor_index, pos_index, neg_index)
+
+        anchor_feat = feature_dataset[anchor_index][0]
+
+        pos_sim = sim_matrix[anchor_index, pos_index].item()
+
+        neg_sim = sim_matrix[anchor_index, neg_index].item()
+
+        # print(pos_sim, neg_sim)
+
+        pos_urf = refined_feats[pos_index]
+
+        neg_urf = refined_feats[neg_index]
+
+
+
+        pos_urf_sim = cosine_similarity(anchor_feat, pos_urf)
+
+        neg_urf_sim = cosine_similarity(anchor_feat, neg_urf)
+
+        # print(pos_urf_sim, neg_urf_sim)
+
+
+
+        pos_cce = float(item[2][0].item() == item[2][1].item())
+
+        neg_cce = float(item[2][0].item() == item[2][2].item())
+
+        # print(pos_cce, neg_cce)
+
+        positive_instances.append((pos_sim, pos_urf_sim, pos_cce, 1))
+
+        negative_instances.append((neg_sim, neg_urf_sim, neg_cce, -1))
+
+    positive_input = np.array(positive_instances)
+
+    negative_input = np.array(negative_instances)
+
+    input = np.concatenate((positive_input, negative_input), axis= 0)
+    
+
+    # Separate inputs (x, y, z) and outputs (label)
+    X = input[:, :3]  # Features (x, y, z)
+    y = input[:, 3]   # Labels (1 or -1)
+    lin_model = LinearRegression()
+    lin_model.fit(X, y)
+    # Extract and print weights (coefficients) and bias (intercept)
+    weights = lin_model.coef_  # Model weights
+    bias = lin_model.intercept_  # Model bias
+    print("Weights:", weights)
+    print("Bias:", bias)
+    return weights, bias
+
+def cal_gal_querry_sim_maxtrix(weights, bias, gallery_folder, query_folder, transform, model1):
+    gallery_jpg_files = get_jpg_files(gallery_folder)
+    gallery_dataset = Dataset(gallery_jpg_files, transform=transform)
+    query_jpg_files = get_jpg_files(query_folder)
+    query_dataset = Dataset(query_jpg_files, transform=transform)
+    batch_size = 128
+    gallery_dataloader = DataLoader(gallery_dataset, batch_size=batch_size, shuffle=False)
+    query_dataloader = DataLoader(query_dataset, batch_size=batch_size, shuffle=False)
+
+    # Example usage
+    extract_and_save_features(model1, gallery_dataloader, save_path='/hgst/longdn/UCF-main/logs/somthingidkgallery_features.npy')
+    extract_and_save_features(model1, query_dataloader, save_path='/hgst/longdn/UCF-main/logs/somthingidkquery_features.npy')
+    gallery_feature_dataset = FeatureDataset('/hgst/longdn/UCF-main/logs/somthingidkgallery_features.npy')
+    query_feature_dataset = FeatureDataset('/hgst/longdn/UCF-main/logs/somthingidkquery_features.npy')
+
+    dataset1 = query_feature_dataset
+    dataset2 = gallery_feature_dataset
+    query_to_gallery_sim_matrix = compute_cosine_similarity_between_datasets(dataset1, dataset2, batch_size=256)
+
+
+    dataset1 = gallery_feature_dataset
+    dataset2 = gallery_feature_dataset
+    gallery_sim_matrix = compute_cosine_similarity_between_datasets(dataset1, dataset2, batch_size=256)
+
+    k = 5
+    gallery_neighbors = k_nearest_neighbors(gallery_sim_matrix, k)
+    gallery_refined_feats = refined_features(feature_dataset= gallery_feature_dataset, sim_matrix= gallery_sim_matrix, neighbors= gallery_neighbors)
+    data_tensor = gallery_refined_feats  # Replace with your actual tensor
+
+#    Create the dataset
+    refined_feat_dataset = TensorRowDataset(data_tensor)
+    dataset1 = query_feature_dataset
+    dataset2 = refined_feat_dataset
+
+    query_to_refined_gallery_sim_matrix = compute_cosine_similarity_between_datasets(dataset1, dataset2, batch_size=256)
+    query_cam_angles = torch.tensor([sample[2] for sample in query_feature_dataset])
+    gallery_cam_angles = torch.tensor([sample[2] for sample in gallery_feature_dataset])
+
+    # Use broadcasting to create the binary matrix
+    cce_matrix = (query_cam_angles[:, None] == gallery_cam_angles[None, :]).float()
+    print(cce_matrix.shape, cce_matrix[0])
+    bias_matrix = torch.full(cce_matrix.shape, bias)
+    query_to_gallery_find_matrix = weights[0] * query_to_gallery_sim_matrix + weights[1] * query_to_refined_gallery_sim_matrix + weights[2] * cce_matrix + bias_matrix
+    return query_to_gallery_find_matrix, query_dataset, gallery_dataset,
 def cmc(sim_matrix, query_ids=None, gallery_ids=None,
         query_cams=None, gallery_cams=None, topk=100,
         separate_camera_set=False,
@@ -755,12 +912,9 @@ def cmc(sim_matrix, query_ids=None, gallery_ids=None,
         raise RuntimeError("No valid query")
     return ret.cumsum() / num_valid_queries
 
-def mean_ap(sim_matrix, query_ids=None, gallery_ids=None,
-            query_cams=None, gallery_cams=None):
-
+def mean_ap(sim_matrix, query_ids=None, gallery_ids=None,query_cams=None, gallery_cams=None):
     sim_matrix = to_numpy(sim_matrix)
     m, n = sim_matrix.shape
-
     if query_ids is None:
         query_ids = np.arange(m)
     if gallery_ids is None:
@@ -769,17 +923,13 @@ def mean_ap(sim_matrix, query_ids=None, gallery_ids=None,
         query_cams = np.zeros(m).astype(np.int32)
     if gallery_cams is None:
         gallery_cams = np.ones(n).astype(np.int32)
-
     query_ids = np.asarray(query_ids)
     gallery_ids = np.asarray(gallery_ids)
     query_cams = np.asarray(query_cams)
     gallery_cams = np.asarray(gallery_cams) 
-
-
     # Sắp xếp theo độ tương đồng (thứ tự giảm dần)
     indices = np.argsort(-sim_matrix, axis=1)  
     matches = (gallery_ids[indices] == query_ids[:, np.newaxis])
-
     aps = []
     for i in range(m):
         valid = ((gallery_ids[indices[i]] != query_ids[i]) |
@@ -834,11 +984,8 @@ def evaluate_all(sim_matrix, query=None, gallery=None,
         return cmc_scores['duke'][0], mAP
     return mAP
 
-from sklearn.metrics import average_precision_score
-
 # final
 def main_worker(args):
-
     fc_len = 32621
     ncs = [int(x) for x in args.ncs.split(',')]
     model, model_ema,model1 = create_model2(args, [fc_len for _ in range(len(ncs))])
@@ -881,216 +1028,21 @@ def main_worker(args):
 
     # Buoc2
     transform = transforms.Compose([
-
     transforms.Resize((256, 128)),
-
     transforms.ToTensor(),
-
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
     records = new_dataset
+    feature_dataset, triplet_dataset = create_dataset(records, transform,model1)
+    weights, bias = cal_weights_bias( feature_dataset, triplet_dataset)
 
-    # Create dataset and dataloader
-
-    dataset = Dataset(records, transform=transform)
-
-    data_loader = DataLoader(dataset, batch_size=32, shuffle=True, num_workers=4)
-    for images, labels, cam_angles in data_loader:
-
-        print("Batch of images:", images.size())  # Should be [batch_size, 3, height, width]
-
-        print("Batch of labels:", labels)
-
-        print("Batch of camera angles:", cam_angles)
-
-        break
-
-    
-    for i, item in enumerate(data_loader):
-        imgs, labels= item[0], item[1]
-        outputs = extract_cnn_feature(model1, imgs)
-        print(outputs.shape)
-        break
-    data_loader = DataLoader(dataset, batch_size= 32, shuffle=True)
-
-    # Now you can iterate through both loaders
-
-    for images, labels, angles in data_loader:
-
-        print("Batch:", images.shape, images, labels)
-        break
-    features = []
-    for i, item in enumerate(data_loader):
-        imgs, labels= item[0], item[1]
-        print(labels)
-        outputs = extract_cnn_feature(model1, imgs)
-        features= outputs
-        tensor1 = outputs[0]
-        tensor2 = outputs[1]
-        similarity = cosine_similarity(tensor1, tensor2)
-        print(f"Cosine Similarity: {similarity}")
-        break
-    sim_matrix = torch.zeros(len(features), len(features))
-    for i in range(len(features)):
-
-        for j in range(i, len(features)): 
-
-            sim_matrix[i][j] = cosine_similarity(features[i], features[j])
-
-            sim_matrix[j][i] = sim_matrix[i][j]
-    k = 5
-    neighbors = k_nearest_neighbors(sim_matrix, k)
-    print(neighbors)
-    for i in range(5):
-        print(sim_matrix[0][neighbors[0][i]])
-
-    # refined_feats = refined_features(features= features, sim_matrix= sim_matrix, neighbors= neighbors)
-    sorted_data = sorted([(img, label, cam) for img, label, cam in dataset], key=lambda x: x[1])
-    dataset = sorted_data
-    batch_size = 16
-    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
-    extract_and_save_features(model1, dataloader, save_path='/hgst/longdn/UCF-main/outstIDK/duke_features.npy')
-    data = np.load('/hgst/longdn/UCF-main/outstIDK/duke_features.npy', allow_pickle=True).item()
-    features, labels, cam_angles = data['features'], data['labels'], data['cam_angles']
-    feature_dataset = FeatureDataset('/hgst/longdn/UCF-main/outstIDK/duke_features.npy')
-    feature_dataloader = torch.utils.data.DataLoader(feature_dataset, batch_size=32, shuffle=True)
-    triplet_dataset = TripletDataset(feature_dataset)
-    triplet_loader = DataLoader(triplet_dataset, batch_size=32, shuffle=True)
-   
-# Now you can use this dataset with a DataLoader for further processing or model training
-    dataset1 = feature_dataset
-    dataset2 = feature_dataset
-    sim_matrix = compute_cosine_similarity_between_datasets(dataset1, dataset2, batch_size=256)
-    print(sim_matrix[0][1])
-    k = 7
-    neighbors = k_nearest_neighbors(sim_matrix, k)
-    refined_feats = refined_features(feature_dataset= feature_dataset, sim_matrix= sim_matrix, neighbors= neighbors)
-    positive_instances = []
-
-    negative_instances = []
-    for i, item in enumerate(triplet_dataset):
-
-        # print(item) 
-
-        anchor_index = item[0][0]
-
-        pos_index = item[0][1]
-
-        neg_index = item[0][2]
-
-        # print(anchor_index, pos_index, neg_index)
-
-        anchor_feat = feature_dataset[anchor_index][0]
-
-        pos_sim = sim_matrix[anchor_index, pos_index].item()
-
-        neg_sim = sim_matrix[anchor_index, neg_index].item()
-
-        # print(pos_sim, neg_sim)
-
-        pos_urf = refined_feats[pos_index]
-
-        neg_urf = refined_feats[neg_index]
-
-
-
-        pos_urf_sim = cosine_similarity(anchor_feat, pos_urf)
-
-        neg_urf_sim = cosine_similarity(anchor_feat, neg_urf)
-
-        # print(pos_urf_sim, neg_urf_sim)
-
-
-
-        pos_cce = float(item[2][0].item() == item[2][1].item())
-
-        neg_cce = float(item[2][0].item() == item[2][2].item())
-
-        # print(pos_cce, neg_cce)
-
-
-
-        positive_instances.append((pos_sim, pos_urf_sim, pos_cce, 1))
-
-        negative_instances.append((neg_sim, neg_urf_sim, neg_cce, -1))
-    print(len(positive_instances))
-
-    print(len(negative_instances))
-
-
-
-    positive_input = np.array(positive_instances)
-
-    negative_input = np.array(negative_instances)
-
-    input = np.concatenate((positive_input, negative_input), axis= 0)
-    
-
-    # Separate inputs (x, y, z) and outputs (label)
-    X = input[:, :3]  # Features (x, y, z)
-    y = input[:, 3]   # Labels (1 or -1)
-    lin_model = LinearRegression()
-    lin_model.fit(X, y)
-    # Extract and print weights (coefficients) and bias (intercept)
-    weights = lin_model.coef_  # Model weights
-    bias = lin_model.intercept_  # Model bias
-    print("Weights:", weights)
-    print("Bias:", bias)
     # Buoc2
-    transform = transforms.Compose([
-    transforms.Resize((256, 128)),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-])
+
 
     gallery_folder = '/hgst/longdn/UCF-main/data/dukemtmc/bounding_box_test'  # Replace with the path to your folder
-
-    gallery_jpg_files = get_jpg_files(gallery_folder)
-    gallery_dataset = Dataset(gallery_jpg_files, transform=transform)
     query_folder = '/hgst/longdn/UCF-main/data/dukemtmc/query'  # Replace with the path to your folder
-    query_jpg_files = get_jpg_files(query_folder)
-    query_dataset = Dataset(query_jpg_files, transform=transform)
-    batch_size = 128
-    gallery_dataloader = DataLoader(gallery_dataset, batch_size=batch_size, shuffle=False)
-    query_dataloader = DataLoader(query_dataset, batch_size=batch_size, shuffle=False)
+    query_to_gallery_find_matrix, query_dataset, gallery_dataset = cal_gal_querry_sim_maxtrix(weights, bias, gallery_folder, query_folder, transform, model1)
 
-    # Example usage
-    extract_and_save_features(model1, gallery_dataloader, save_path='gallery_features.npy')
-    extract_and_save_features(model1, query_dataloader, save_path='query_features.npy')
-    gallery_feature_dataset = FeatureDataset('gallery_features.npy')
-    query_feature_dataset = FeatureDataset('query_features.npy')
-
-    dataset1 = query_feature_dataset
-    dataset2 = gallery_feature_dataset
-    query_to_gallery_sim_matrix = compute_cosine_similarity_between_datasets(dataset1, dataset2, batch_size=256)
-
-
-    dataset1 = gallery_feature_dataset
-    dataset2 = gallery_feature_dataset
-    gallery_sim_matrix = compute_cosine_similarity_between_datasets(dataset1, dataset2, batch_size=256)
-
-    k = 5
-    gallery_neighbors = k_nearest_neighbors(gallery_sim_matrix, k)
-    gallery_refined_feats = refined_features(feature_dataset= gallery_feature_dataset, sim_matrix= gallery_sim_matrix, neighbors= gallery_neighbors)
-    data_tensor = gallery_refined_feats  # Replace with your actual tensor
-
-#    Create the dataset
-    refined_feat_dataset = TensorRowDataset(data_tensor)
-    dataset1 = query_feature_dataset
-    dataset2 = refined_feat_dataset
-
-    query_to_refined_gallery_sim_matrix = compute_cosine_similarity_between_datasets(dataset1, dataset2, batch_size=256)
-    query_cam_angles = torch.tensor([sample[2] for sample in query_feature_dataset])
-    gallery_cam_angles = torch.tensor([sample[2] for sample in gallery_feature_dataset])
-
-    # Use broadcasting to create the binary matrix
-    cce_matrix = (query_cam_angles[:, None] == gallery_cam_angles[None, :]).float()
-
-    print(cce_matrix.shape, cce_matrix[0])
-    bias_matrix = torch.full(cce_matrix.shape, bias)
-
-    query_to_gallery_find_matrix = weights[0] * query_to_gallery_sim_matrix + weights[1] * query_to_refined_gallery_sim_matrix + weights[2] * cce_matrix + bias_matrix
-    query_to_gallery_find_matrix.shape
     # print(evaluate_all(query_to_gallery_sim_matrix, query= query_dataset, gallery= gallery_dataset))
     print(evaluate_all(query_to_gallery_find_matrix, query= query_dataset, gallery= gallery_dataset))
 

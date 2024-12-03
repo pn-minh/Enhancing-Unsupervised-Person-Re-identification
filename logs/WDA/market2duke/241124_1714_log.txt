@@ -1,0 +1,828 @@
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.170 (0.176)	Data 0.000 (0.003)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.659147262573242
+Extract Features: [100/130]	Time 0.158 (0.161)	Data 0.000 (0.003)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.573867797851562
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0930092334747314s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.052182674407959s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6434810161590576s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: -0.10146216303110123
+Weights: [1.29612447 0.97612071]
+Bias: -0.8914486992187902
+Mean AP: 75.1%
+CMC Scores:
+  top-1          84.3%
+  top-5          91.2%
+  top-10         93.5%
+0.7505135211087354
+k:  2
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.159 (0.163)	Data 0.000 (0.005)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.184511661529541
+Extract Features: [100/130]	Time 0.158 (0.252)	Data 0.000 (0.078)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.595550298690796
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=3.8223814964294434s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.9377243518829346s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.7571611404418945s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: 0.06141834706068039
+Weights: [1.14655388 1.10870829]
+Bias: -0.8965378557892695
+Mean AP: 76.0%
+CMC Scores:
+  top-1          84.2%
+  top-5          91.2%
+  top-10         93.6%
+0.7603625691387966
+k:  3
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.166)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.392712593078613
+Extract Features: [100/130]	Time 0.158 (0.259)	Data 0.000 (0.086)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 15.920182228088379
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=7.857949495315552s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.7537739276885986s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.7476754188537598s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: -0.04439225792884827
+Weights: [0.77646013 1.43871112]
+Bias: -0.8974288409439216
+Mean AP: 76.9%
+CMC Scores:
+  top-1          83.3%
+  top-5          90.9%
+  top-10         93.3%
+0.7690836249234244
+k:  4
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.165)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.430188179016113
+Extract Features: [100/130]	Time 0.293 (0.251)	Data 0.134 (0.080)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.67733645439148
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=8.592918634414673s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.7193446159362793s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=1.071106195449829s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: 0.02251790463924408
+Weights: [0.7026486  1.49919992]
+Bias: -0.8969167570115817
+Mean AP: 77.3%
+CMC Scores:
+  top-1          83.7%
+  top-5          91.1%
+  top-10         93.3%
+0.7732780412433696
+k:  5
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.165)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.365903377532959
+Extract Features: [100/130]	Time 0.159 (0.224)	Data 0.000 (0.052)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.930175304412842
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=4.30353045463562s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.903653860092163s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.7127561569213867s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: -0.1009996235370636
+Weights: [0.53183302 1.65146311]
+Bias: -0.8973218896821097
+Mean AP: 77.8%
+CMC Scores:
+  top-1          83.4%
+  top-5          91.0%
+  top-10         93.3%
+0.778075592618688
+k:  6
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.165)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.208801031112671
+Extract Features: [100/130]	Time 0.252 (0.289)	Data 0.094 (0.105)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.832007646560669
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=10.139420747756958s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=3.1334052085876465s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.87532639503479s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: 0.0024193786084651947
+Weights: [0.49270796 1.68739097]
+Bias: -0.9004793384240352
+Mean AP: 78.1%
+CMC Scores:
+  top-1          83.3%
+  top-5          91.2%
+  top-10         93.4%
+0.7808779649758016
+k:  7
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.166)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.381475448608398
+Extract Features: [100/130]	Time 0.171 (0.245)	Data 0.012 (0.068)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 11.363206386566162
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=8.110389232635498s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.747767210006714s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.8640570640563965s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: -0.037274379283189774
+Weights: [0.56782348 1.62123171]
+Bias: -0.901670776214269
+Mean AP: 78.3%
+CMC Scores:
+  top-1          83.9%
+  top-5          91.2%
+  top-10         93.5%
+0.7828393360898702
+k:  8
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.165)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.197463989257812
+Extract Features: [100/130]	Time 0.158 (0.252)	Data 0.000 (0.092)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.591550827026367
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=5.363200664520264s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.8289992809295654s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.666151762008667s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: 0.055752962827682495
+Weights: [0.5271687  1.65552617]
+Bias: -0.9003067998132739
+Mean AP: 78.4%
+CMC Scores:
+  top-1          83.6%
+  top-5          91.1%
+  top-10         93.6%
+0.7837036676241294
+k:  9
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.166)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.315454483032227
+Extract Features: [100/130]	Time 0.158 (0.234)	Data 0.000 (0.061)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.079383850097656
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.8230838775634766s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.6154065132141113s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6482901573181152s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: 0.10185211896896362
+Weights: [0.48150838 1.70331194]
+Bias: -0.9034389080128933
+Mean AP: 78.5%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.7%
+0.7847745250592733
+k:  10
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.166)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.200891733169556
+Extract Features: [100/130]	Time 0.158 (0.263)	Data 0.000 (0.088)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.070844173431396
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.7471415996551514s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.4903361797332764s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6681098937988281s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: -0.04626506567001343
+Weights: [0.51385859 1.67809835]
+Bias: -0.905060943902545
+Mean AP: 78.6%
+CMC Scores:
+  top-1          83.7%
+  top-5          91.7%
+  top-10         93.6%
+0.7856764215686733
+k:  11
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.163 (0.166)	Data 0.005 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.298579216003418
+Extract Features: [100/130]	Time 0.158 (0.223)	Data 0.000 (0.058)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.435441493988037
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.883117198944092s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.492926836013794s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6678788661956787s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: -0.07540026307106018
+Weights: [0.49419447 1.69817875]
+Bias: -0.9057278976367529
+Mean AP: 78.6%
+CMC Scores:
+  top-1          83.9%
+  top-5          91.8%
+  top-10         93.5%
+0.7857030955290248
+k:  12
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.163 (0.166)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.336851596832275
+Extract Features: [100/130]	Time 0.158 (0.235)	Data 0.000 (0.065)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.035930156707764
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.8354301452636719s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.6839025020599365s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6714868545532227s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: 0.0879434123635292
+Weights: [0.60478559 1.59700029]
+Bias: -0.9042569176989836
+Mean AP: 78.5%
+CMC Scores:
+  top-1          84.6%
+  top-5          91.8%
+  top-10         93.7%
+0.784572872346712
+k:  13
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.166)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.32057523727417
+Extract Features: [100/130]	Time 0.206 (0.268)	Data 0.047 (0.088)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.533437728881836
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=9.060932636260986s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.483994722366333s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.8577585220336914s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: 0.06553735584020615
+Weights: [0.44478389 1.74764449]
+Bias: -0.9078819978329342
+Mean AP: 78.5%
+CMC Scores:
+  top-1          83.7%
+  top-5          91.7%
+  top-10         93.6%
+0.7850874365401553
+k:  14
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.166)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.279446840286255
+Extract Features: [100/130]	Time 0.158 (0.219)	Data 0.000 (0.053)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.151837587356567
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=5.426473379135132s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.5968685150146484s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.7255148887634277s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: -0.056387484073638916
+Weights: [0.48442539 1.70940859]
+Bias: -0.9029588424938817
+Mean AP: 78.5%
+CMC Scores:
+  top-1          84.0%
+  top-5          91.8%
+  top-10         93.6%
+0.7847063038143701
+k:  15
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.165)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.017507553100586
+Extract Features: [100/130]	Time 0.158 (0.192)	Data 0.000 (0.033)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.239320993423462
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=8.012492656707764s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.8016788959503174s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=1.1659624576568604s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: 0.2613251209259033
+Weights: [0.55045074 1.6517101 ]
+Bias: -0.9009028826235306
+Mean AP: 78.4%
+CMC Scores:
+  top-1          84.4%
+  top-5          91.8%
+  top-10         93.7%
+0.7837018315838079
+k:  16
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.165)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.271068334579468
+Extract Features: [100/130]	Time 0.163 (0.179)	Data 0.000 (0.020)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.923656225204468
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.661770820617676s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.450598955154419s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6126775741577148s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: -0.010534273460507393
+Weights: [0.52049912 1.68270846]
+Bias: -0.9036888873852837
+Mean AP: 78.4%
+CMC Scores:
+  top-1          84.2%
+  top-5          91.6%
+  top-10         93.6%
+0.7835303067812732
+k:  17
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.165)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.285837173461914
+Extract Features: [100/130]	Time 0.158 (0.198)	Data 0.000 (0.040)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.065861225128174
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=6.900043487548828s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.5266363620758057s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.7536089420318604s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: -0.06096242368221283
+Weights: [0.51339018 1.69018593]
+Bias: -0.9020685204133427
+Mean AP: 78.3%
+CMC Scores:
+  top-1          84.1%
+  top-5          91.8%
+  top-10         93.6%
+0.7829893305882889
+k:  18
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.158 (0.165)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.395302057266235
+Extract Features: [100/130]	Time 0.158 (0.179)	Data 0.000 (0.021)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.017424821853638
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=8.666301727294922s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.5582962036132812s
+The HC Re-cluster result: num cluster = 1561(model) // 1550(model_ema) 	 num outliers = 299(model) // 358(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.9930539131164551s
+The UCIS result: num clean cluster = 1543(model) 	 num outliers = 713(model)
+mdoel:new class are [1544], length of new dataset is 15809
+Cosine Similarity: -0.02809285931289196
+Weights: [0.53770429 1.67769537]
+Bias: -0.9058681020753392
+Mean AP: 78.2%
+CMC Scores:
+  top-1          83.9%
+  top-5          91.8%
+  top-10         93.6%
+0.7816991470642102
+k:  19
+

@@ -1,6 +1,7 @@
 ==========
-Args:Namespace(dataset_source='market1501', dataset_target='dukemtmc', batch_size=64, workers=4, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=0.00035, momentum=0.9, weight_decay=0.0005, warmup_step=10, milestones=[40, 70], resume='', evaluate=False, eval_step=20, rerank=False, epochs=60, iters=200, seed=1, print_freq=100, margin=0.0, data_dir='/home/phong/Desktop/UCF-main/data', logs_dir='/home/phong/Desktop/UCF-main/logs')
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/', log_name='', HC=False, UCIS=False)
 ==========
+/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test
 => Market1501 loaded
 Dataset statistics:
   ----------------------------------------
@@ -10,3 +11,24 @@ Dataset statistics:
   query    |   750 |     3368 |         6
   gallery  |   751 |    15913 |         6
   ----------------------------------------
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+Test on the best model.
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/model_best.pth.tar'
+Extract Features: [100/151]	Time 1.794 (1.549)	Data 0.000 (0.004)	
+Mean AP: 83.6%
+CMC Scores:
+  top-1          93.6%
+  top-5          97.7%
+  top-10         98.5%

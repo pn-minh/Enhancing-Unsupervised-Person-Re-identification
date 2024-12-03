@@ -1,0 +1,31 @@
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model1_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model2_checkpoint.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.143 (0.150)	Data 0.000 (0.004)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.527758359909058
+Extract Features: [100/130]	Time 0.143 (0.146)	Data 0.000 (0.003)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.516430854797363
+mdoel:new class are [1564], length of new dataset is 16226
+Cosine Similarity: -0.07924246788024902
+Weights: [0.69242977 1.49176995]
+Bias: -0.8863699690379059
+Mean AP: 77.3%
+CMC Scores:
+  top-1          83.7%
+  top-5          91.1%
+  top-10         93.3%
+0.7733389240619162

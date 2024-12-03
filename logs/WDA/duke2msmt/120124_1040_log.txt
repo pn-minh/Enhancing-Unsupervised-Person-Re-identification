@@ -1,0 +1,40 @@
+==========
+Args:Namespace(seed=1, dataset_target='msmt17', logs_dir='/hgst/longdn/UCF-main/logs/WDA/duke2msmt/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', k1=20, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> MSMT17 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |  1041 |    32621 |         9
+  query    |  3060 |    11659 |         9
+  gallery  |  3060 |    82161 |         9
+  ----------------------------------------
+==========
+Args:Namespace(seed=1, dataset_target='msmt17', logs_dir='/hgst/longdn/UCF-main/logs/WDA/duke2msmt/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', k1=20, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> MSMT17 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |  1041 |    32621 |         9
+  query    |  3060 |    11659 |         9
+  gallery  |  3060 |    82161 |         9
+  ----------------------------------------
+Extract Features: [100/255]	Time 0.143 (0.161)	Data 0.000 (0.003)	
+Extract Features: [200/255]	Time 0.155 (0.157)	Data 0.000 (0.002)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 87.99214291572571

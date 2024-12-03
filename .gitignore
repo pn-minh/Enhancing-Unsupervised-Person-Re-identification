@@ -1,7 +1,20 @@
 /__pycache__
 /.idea
 /data
-/logs/dbscan/market2duke/*.tar
+/logs/dbscan/msmt2market/*.tar
+/logs/dbscan/market2msmt/*.tar
+/logs/dbscan/duke2msmt/*.tar
+/logs/dbscan/msmt2duke/*.tar
+/log/dbscan/marke2duke/*.tar
+/log/dbscan/duke2market/*.tar
+
+/logs/pretrained/msmt2market/*.tar
+/logs/pretrained/market2msmt/*.tar
+/logs/pretrained/duke2msmt/*.tar
+/logs/pretrained/msmt2duke/*.tar
+/logs/pretrained/market2duke/*.tar
+
+
 /logs/dbscan/market2duke copy/*.tar
 /logs/dbscan/market2dukev2/*.tar
 /logs/dbscan/market2dukev3/*.tar
@@ -9,6 +22,23 @@
 /logs/pretrained/market2cuhk03/*.tar
 /logs/pretrained/market2duke/*.tar
 /logs/pretrained/market1501cuhk03/*.tar
+
+
+/logs/WDA/msmt2market/ExtractData/*.npy
+/logs/WDA/market2msmt/ExtractData/*.npy
+/logs/WDA/duke2msmt/ExtractData/*.npy
+/logs/WDA/msmt2duke/ExtractData/*.npy
+/logs/WDA/market2duke/ExtractData/*.npy
+/logs/WDA/duke2market/ExtractData/*.npy
+
+/logs/WDA/msmt2market/ExtractData/*.pth
+/logs/WDA/market2msmt/ExtractData/*.pth
+/logs/WDA/duke2msmt/ExtractData/*.pth
+/logs/WDA/msmt2duke/ExtractData/*.pth
+/logs/WDA/market2duke/ExtractData/*.pth
+/logs/WDA/duke2market/ExtractData/*.pth
+
+/Trash
 /outstIDK
 /logs/somthingidk
 

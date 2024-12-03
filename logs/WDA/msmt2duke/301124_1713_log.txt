@@ -1,0 +1,64 @@
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=20, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+10
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+21
+14565
+Extract Features: [100/130]	Time 0.143 (0.150)	Data 0.000 (0.003)	
+Computing jaccard distance...
+11221321
+1213254451
+121365421
+xong
+12135416521
+155416521321
+121465156151561651561321
+1
+2
+3
+4
+15
+Extract Features: [100/130]	Time 0.142 (0.145)	Data 0.000 (0.003)	
+Computing jaccard distance...
+11221321
+1213254451
+121365421
+xong
+12135416521
+155416521321
+121465156151561651561321
+1
+2
+3
+4
+515
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=0.9880771636962891s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=0.9827921390533447s
+The HC Re-cluster result: num cluster = 1116(model) // 1116(model_ema) 	 num outliers = 992(model) // 992(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6464512348175049s
+The UCIS result: num clean cluster = 1116(model) 	 num outliers = 992(model)
+54
+mdoel:new class are [1117], length of new dataset is 15530
+Cosine Similarity: -0.051851898431777954
+Weights: [0.18828633 0.30835525]
+Bias: 0.12499274807651378

@@ -4,6 +4,7 @@ import os.path as osp
 import random
 import numpy as np
 import sys
+import torchinfo
 
 import hdbscan
 from sklearn.cluster import DBSCAN
@@ -199,7 +200,8 @@ def reCluster(target_features,pseudo_labels,uncer_id, max_class,args,sc_score_sa
         re_cluster = DBSCAN(eps=0.4, min_samples=4, metric='precomputed', n_jobs=-1)
         uncer_cluster_index = (pseudo_labels == id).nonzero()
         feature_recluster = target_features[uncer_cluster_index].squeeze(1)
-        rerank_dist_1 = compute_jaccard_distance(feature_recluster, k1=args.k1, k2=args.k2,print_flag=False,search_option=3)
+        rerank_dist_1 = compute_jaccard_distance(feature_recluster, k1=args.k1, k2=args.k2,print_flag=False)
+        torch.cuda.empty_cache()
         re_pseudo_labels = re_cluster.fit_predict(rerank_dist_1)
         temp_labels[uncer_cluster_index] = refine_label(re_pseudo_labels, max_class, count)
         # print('the uncer_id {} (include {} samples) re-cluster into {} new clusters,which is id {}'.format(id,len(uncer_cluster_index[0]),len(set(re_pseudo_labels)),set(re_pseudo_labels)))
@@ -250,10 +252,10 @@ def main_worker(args):
     # Create model
     fc_len = 32621
     model, _, model_ema, _ = create_model(args, [fc_len for _ in range(len(ncs))])
-    epoch = 0
+    # epoch = 0
     eps = 0.6
     print('Clustering criterion: eps: {:.3f}'.format(eps))
-    # cluster = DBSCAN(eps=eps, min_samples=4, metric='precomputed', n_jobs=-1)
+    cluster = DBSCAN(eps=eps, min_samples=4, metric='precomputed', n_jobs=-1)
     cluster = hdbscan.HDBSCAN(metric='precomputed')
     evaluator = Evaluator(model)
     evaluator_ema = Evaluator(model_ema)
@@ -265,19 +267,63 @@ def main_worker(args):
         if epoch % 1 == 0:
             print('==> Create pseudo labels for unlabeled target domain with model')
             target_features = get_features(model,tar_cluster_loader)
-            rerank_dist = compute_jaccard_distance(target_features, k1=args.k1, k2=args.k2,search_option=3)
-            pseudo_labels = cluster.fit_predict(rerank_dist.astype('double'))#numbel label
+            rerank_dist = compute_jaccard_distance(target_features, k1=args.k1, k2=args.k2)
+            torch.cuda.empty_cache()
+            # pseudo_labels = cluster.fit_predict(rerank_dist.astype('double'))#numbel label
+            # pl = pseudo_labels.copy()
+            # num_outliers = sum(pseudo_labels==-1)
+            # num_cluster_label = len(set(pl))-1 if num_outliers != 0 else len(set(pl))
+            
+            # chia nhor theo batch
+            n_samples = rerank_dist.shape[0]
+            batch_size = 500  # Chọn kích thước batch phù hợp
+            # Khởi tạo nhãn là -1 (chưa gán cụm)
+            pseudo_labels = np.full(n_samples, -1)
+            for i in range(0, n_samples, batch_size):
+                start = i
+                end = min(i + batch_size, n_samples)
+                batch_distance_matrix = rerank_dist[start:end, start:end]
+                # Chuyển đổi sang double
+                batch_distance_matrix = batch_distance_matrix.astype('double')
+
+                batch_labels = cluster.fit_predict(batch_distance_matrix)
+                pseudo_labels[start:end] = batch_labels
+            # pseudo_labels = cluster.fit_predict(rerank_dist)#numbel label
             pl = pseudo_labels.copy()
-            num_outliers = sum(pseudo_labels==-1)
+            num_outliers = sum(pseudo_labels == -1)
             num_cluster_label = len(set(pl))-1 if num_outliers != 0 else len(set(pl))
+
+
+
 
             print('==> Create pseudo labels for unlabeled target domain with model_ema')
             target_features_ema = get_features(model_ema,tar_cluster_loader)
-            rerank_dist_ema = compute_jaccard_distance(target_features_ema, k1=args.k1, k2=args.k2,search_option=3)
-            pseudo_labels_ema = cluster.fit_predict(rerank_dist_ema.astype('double'))
+            rerank_dist_ema = compute_jaccard_distance(target_features_ema, k1=args.k1, k2=args.k2)
+            torch.cuda.empty_cache()
+            # pseudo_labels_ema = cluster.fit_predict(rerank_dist_ema.astype('double'))
+            # pl_ema = pseudo_labels_ema.copy()
+            # num_outliers_ema = sum(pseudo_labels_ema == -1)
+            # num_cluster_label_ema = len(set(pl_ema)) - 1 if num_outliers_ema != 0 else len(set(pl_ema))
+
+            
+            # chia nhor theo batch
+            n_samples_ema = rerank_dist_ema.shape[0]
+            batch_size = 500  # Chọn kích thước batch phù hợp
+            # Khởi tạo nhãn là -1 (chưa gán cụm)
+            pseudo_labels_ema = np.full(n_samples_ema, -1)
+            for i in range(0, n_samples_ema, batch_size):
+                start = i
+                end = min(i + batch_size, n_samples)
+                batch_distance_matrix_ema = rerank_dist_ema[start:end, start:end]
+                # Chuyển đổi sang double
+                batch_distance_matrix_ema = batch_distance_matrix_ema.astype('double')
+
+                batch_labels_ema = cluster.fit_predict(batch_distance_matrix_ema)
+                pseudo_labels_ema[start:end] = batch_labels_ema
+            # pseudo_labels = cluster.fit_predict(rerank_dist)#numbel label
             pl_ema = pseudo_labels_ema.copy()
             num_outliers_ema = sum(pseudo_labels_ema == -1)
-            num_cluster_label_ema = len(set(pl_ema)) - 1 if num_outliers_ema != 0 else len(set(pl_ema))
+            num_cluster_label_ema = len(set(pl))-1 if num_outliers_ema != 0 else len(set(pl))
 
             print('The orignal cluster result: num cluster = {}(model) // {}(model_ema) \t num outliers = {}(model) // '
                   '{}(model_ema)'.format(num_cluster_label,num_cluster_label_ema,num_outliers,num_outliers_ema))
@@ -421,7 +467,10 @@ def main_worker(args):
     print('Test on the best model.')
     checkpoint = load_checkpoint(osp.join(args.logs_dir, 'model_best.pth.tar'))
     model.load_state_dict(checkpoint['state_dict'])
-    evaluator.evaluanete(test_loader_target, dataset_target.query, dataset_target.gallery, cmc_flag=True)
+
+    checkpoint = load_checkpoint(osp.join(args.logs_dir, 'model_best.pth.tar'))
+    model.load_state_dict(checkpoint['state_dict'])
+    evaluator.evaluate(test_loader_target, dataset_target.query, dataset_target.gallery, cmc_flag=True)
 
 
 if __name__ == '__main__':
@@ -429,14 +478,14 @@ if __name__ == '__main__':
     # data
     parser.add_argument('-st', '--dataset-source', type=str, default='market1501',
                         choices=datasets.names())
-    parser.add_argument('-tt', '--dataset-target', type=str, default='dukemtmc',
+    parser.add_argument('-tt', '--dataset-target', type=str, default='msmt17',
                         choices=datasets.names())
     parser.add_argument('-b', '--batch-size', type=int, default=128)
     parser.add_argument('-j', '--workers', type=int, default=6)
     parser.add_argument('--choice_c', type=int, default=0)
     parser.add_argument('--num-clusters', type=int, default=32621)
     parser.add_argument('--ncs', type=str, default='60')
-    parser.add_argument('--k1', type=int, default=30,
+    parser.add_argument('--k1', type=int, default=25,
                         help="hyperparameter for jaccard distance")
     parser.add_argument('--k2', type=int, default=6,
                         help="hyperparameter for jaccard distance")
@@ -455,7 +504,7 @@ if __name__ == '__main__':
     parser.add_argument('--features', type=int, default=0)
     parser.add_argument('--dropout', type=float, default=0)
     # optimizer
-    parser.add_argument('--lr', type=float, default=0.000035,
+    parser.add_argument('--lr', type=float, default=0.00035,
                         help="")
     parser.add_argument('--momentum', type=float, default=0.9)
     parser.add_argument('--alpha', type=float, default=0.999)
@@ -463,7 +512,7 @@ if __name__ == '__main__':
     parser.add_argument('--weight-decay', type=float, default=5e-4)
     parser.add_argument('--soft-ce-weight', type=float, default=0.5)
     parser.add_argument('--soft-tri-weight', type=float, default=0.8)
-    parser.add_argument('--epochs', type=int, default=200)
+    parser.add_argument('--epochs', type=int, default=50)
     parser.add_argument('--iters', type=int, default=200)
 
     parser.add_argument('--lambda-value', type=float, default=0)
@@ -472,7 +521,7 @@ if __name__ == '__main__':
     parser.add_argument('--rr-gpu', action='store_true',
                         help="use GPU for accelerating clustering")
     parser.add_argument('--init-1', type=str,
-                        default='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar',
+                        default='/hgst/longdn/UCF-main/logs/pretrained/market2msmt/model_best.pth.tar',
                         metavar='PATH')
 
     parser.add_argument('--seed', type=int, default=1)
@@ -483,9 +532,9 @@ if __name__ == '__main__':
     working_dir = osp.dirname(osp.abspath(__file__))
     parser.add_argument('--data-dir', type=str, metavar='PATH',
                         default=osp.join(working_dir, 'data'))
-    parser.add_argument('--logs-dir', type=str, metavar='PAT H',
+    parser.add_argument('--logs-dir', type=str, metavar='PATH',
                         default=osp.join(working_dir,
-                                         '/hgst/longdn/UCF-main/logs/dbscan/market2dukev2/'))
+                                         '/hgst/longdn/UCF-main/logs/dbscan/market2msmt/'))
     parser.add_argument('--log-name',type=str,default='')
 
     # UCF setting

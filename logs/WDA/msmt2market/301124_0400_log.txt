@@ -1,0 +1,1278 @@
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.283 (0.330)	Data 0.000 (0.010)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.916236162185669
+Extract Features: [100/102]	Time 0.143 (0.221)	Data 0.000 (0.066)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 7.17354679107666
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.228888988494873s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=0.7561516761779785s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6069228649139404s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: 0.04193989187479019
+Weights: [0.02029567 0.08873237]
+Bias: 0.1713575270138399
+Cosin+urf+cce
+Mean AP: 83.3%
+CMC Scores:
+  top-1          86.2%
+  top-5          97.7%
+  top-10         98.6%
+0.8328829543677578
+Cosin+urf
+Mean AP: 81.9%
+CMC Scores:
+  top-1          81.9%
+  top-5          97.4%
+  top-10         98.5%
+0.8185042520611824
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 79.8%
+CMC Scores:
+  top-1          77.8%
+  top-5          97.4%
+  top-10         98.6%
+0.7983880581907943
+k:  2
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.233 (0.232)	Data 0.005 (0.008)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.210734128952026
+Extract Features: [100/102]	Time 0.205 (0.233)	Data 0.000 (0.009)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 7.118963956832886
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.5466976165771484s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.5147123336791992s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.7459707260131836s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.07328931987285614
+Weights: [ 0.47980751 -0.32551306]
+Bias: 0.17643883744051
+Cosin+urf+cce
+Mean AP: 82.7%
+CMC Scores:
+  top-1          85.3%
+  top-5          98.0%
+  top-10         98.5%
+0.8270988198007383
+Cosin+urf
+Mean AP: 18.3%
+CMC Scores:
+  top-1          21.0%
+  top-5          65.8%
+  top-10         80.6%
+0.1825793205438624
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 80.6%
+CMC Scores:
+  top-1          78.8%
+  top-5          97.7%
+  top-10         98.6%
+0.8062466332159374
+k:  3
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.247 (0.228)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 7.189598560333252
+Extract Features: [100/102]	Time 0.210 (0.229)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 7.18846321105957
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.4987447261810303s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.4965486526489258s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.40811705589294434s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: 0.00817670114338398
+Weights: [ 0.78690142 -0.60711242]
+Bias: 0.18404584891605888
+Cosin+urf+cce
+Mean AP: 81.4%
+CMC Scores:
+  top-1          81.1%
+  top-5          97.8%
+  top-10         98.6%
+0.8143722785372547
+Cosin+urf
+Mean AP: 2.5%
+CMC Scores:
+  top-1           0.9%
+  top-5           6.5%
+  top-10         16.8%
+0.024674403175887694
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 81.2%
+CMC Scores:
+  top-1          79.5%
+  top-5          97.7%
+  top-10         98.5%
+0.8120434335446247
+k:  4
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.235 (0.228)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 7.166218996047974
+Extract Features: [100/102]	Time 0.251 (0.230)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 7.276510238647461
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.5378336906433105s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.516225814819336s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.4209456443786621s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.010321471840143204
+Weights: [ 1.00626874 -0.79591836]
+Bias: 0.17568064052533894
+Cosin+urf+cce
+Mean AP: 80.4%
+CMC Scores:
+  top-1          77.1%
+  top-5          97.7%
+  top-10         98.3%
+0.8043976898078194
+Cosin+urf
+Mean AP: 1.3%
+CMC Scores:
+  top-1           0.5%
+  top-5           2.4%
+  top-10          5.8%
+0.012638044466386483
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 81.4%
+CMC Scores:
+  top-1          79.5%
+  top-5          97.6%
+  top-10         98.4%
+0.8143304546986433
+k:  5
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.224 (0.229)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 8.034727334976196
+Extract Features: [100/102]	Time 0.263 (0.230)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 7.012616157531738
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.3681576251983643s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.3741788864135742s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.4016387462615967s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: 0.0955238863825798
+Weights: [ 1.12985496 -0.90197791]
+Bias: 0.1820032951088478
+Cosin+urf+cce
+Mean AP: 79.4%
+CMC Scores:
+  top-1          73.4%
+  top-5          97.4%
+  top-10         98.2%
+0.7939385451223859
+Cosin+urf
+Mean AP: 0.9%
+CMC Scores:
+  top-1           0.4%
+  top-5           1.5%
+  top-10          3.5%
+0.009066808682641739
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 81.6%
+CMC Scores:
+  top-1          80.4%
+  top-5          97.5%
+  top-10         98.3%
+0.8160665807230215
+k:  6
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.219 (0.230)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.995192766189575
+Extract Features: [100/102]	Time 0.155 (0.220)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.677096128463745
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.1528053283691406s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0373098850250244s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.4240548610687256s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.07551135122776031
+Weights: [ 1.22994841 -0.98971669]
+Bias: 0.17614092200190828
+Cosin+urf+cce
+Mean AP: 79.4%
+CMC Scores:
+  top-1          73.0%
+  top-5          97.2%
+  top-10         98.3%
+0.7942190014603162
+Cosin+urf
+Mean AP: 0.7%
+CMC Scores:
+  top-1           0.4%
+  top-5           1.3%
+  top-10          3.1%
+0.00694115847254246
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 81.9%
+CMC Scores:
+  top-1          81.0%
+  top-5          97.5%
+  top-10         98.3%
+0.8186208064766916
+k:  7
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.143 (0.220)	Data 0.000 (0.056)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.79210376739502
+Extract Features: [100/102]	Time 0.148 (0.152)	Data 0.005 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 7.02012825012207
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.5420711040496826s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.4945003986358643s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.4936246871948242s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.036388102918863297
+Weights: [ 1.44348579 -1.1864681 ]
+Bias: 0.18295144184136422
+Cosin+urf+cce
+Mean AP: 78.4%
+CMC Scores:
+  top-1          69.2%
+  top-5          97.1%
+  top-10         98.3%
+0.7844591337058028
+Cosin+urf
+Mean AP: 0.4%
+CMC Scores:
+  top-1           0.3%
+  top-5           0.9%
+  top-10          1.8%
+0.004146473527909982
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 81.9%
+CMC Scores:
+  top-1          80.5%
+  top-5          97.5%
+  top-10         98.4%
+0.8193446923051223
+k:  8
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.143 (0.150)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 7.017014980316162
+Extract Features: [100/102]	Time 0.143 (0.150)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 7.027946710586548
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.4944086074829102s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.4942145347595215s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.40140771865844727s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: 0.10170574486255646
+Weights: [ 1.47274392 -1.1900617 ]
+Bias: 0.17884654928360652
+Cosin+urf+cce
+Mean AP: 78.4%
+CMC Scores:
+  top-1          67.9%
+  top-5          97.0%
+  top-10         98.3%
+0.7838496173713225
+Cosin+urf
+Mean AP: 0.6%
+CMC Scores:
+  top-1           0.2%
+  top-5           1.4%
+  top-10          2.9%
+0.005703547299060501
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 82.0%
+CMC Scores:
+  top-1          80.5%
+  top-5          97.5%
+  top-10         98.3%
+0.8203243827486022
+k:  9
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.855994939804077
+Extract Features: [100/102]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.777256011962891
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.419391393661499s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.4683072566986084s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.39193272590637207s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.05129847675561905
+Weights: [ 1.48642584 -1.21637773]
+Bias: 0.184718892014035
+Cosin+urf+cce
+Mean AP: 78.1%
+CMC Scores:
+  top-1          67.1%
+  top-5          96.9%
+  top-10         98.3%
+0.7812442562713714
+Cosin+urf
+Mean AP: 0.4%
+CMC Scores:
+  top-1           0.2%
+  top-5           1.0%
+  top-10          1.9%
+0.004331895939770997
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 82.1%
+CMC Scores:
+  top-1          79.9%
+  top-5          97.3%
+  top-10         98.2%
+0.8213361643684647
+k:  10
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.142 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.850019454956055
+Extract Features: [100/102]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.663483142852783
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.1548800468444824s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.1354081630706787s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.4141099452972412s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.06271270662546158
+Weights: [ 1.46755814 -1.19740588]
+Bias: 0.17975266987538918
+Cosin+urf+cce
+Mean AP: 78.2%
+CMC Scores:
+  top-1          66.5%
+  top-5          96.9%
+  top-10         98.2%
+0.7815578954683758
+Cosin+urf
+Mean AP: 0.5%
+CMC Scores:
+  top-1           0.2%
+  top-5           1.0%
+  top-10          2.3%
+0.004567852991150628
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 82.2%
+CMC Scores:
+  top-1          79.6%
+  top-5          97.3%
+  top-10         98.3%
+0.8216142919863092
+k:  11
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.143 (0.150)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 7.0117104053497314
+Extract Features: [100/102]	Time 0.143 (0.150)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.648597955703735
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.1969170570373535s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.1666603088378906s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.394925594329834s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.06166290491819382
+Weights: [ 1.47514287 -1.22167028]
+Bias: 0.1915907822407221
+Cosin+urf+cce
+Mean AP: 77.9%
+CMC Scores:
+  top-1          65.0%
+  top-5          96.9%
+  top-10         98.3%
+0.7793402416285037
+Cosin+urf
+Mean AP: 0.3%
+CMC Scores:
+  top-1           0.3%
+  top-5           0.9%
+  top-10          1.8%
+0.0034820562846703653
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 82.2%
+CMC Scores:
+  top-1          79.2%
+  top-5          97.4%
+  top-10         98.5%
+0.8223633473389692
+k:  12
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.143 (0.150)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.9834582805633545
+Extract Features: [100/102]	Time 0.143 (0.150)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.676573753356934
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0801246166229248s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.109891414642334s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.38868236541748047s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.02025710418820381
+Weights: [ 1.49423696 -1.23033102]
+Bias: 0.18579716240704117
+Cosin+urf+cce
+Mean AP: 77.7%
+CMC Scores:
+  top-1          64.6%
+  top-5          96.6%
+  top-10         98.4%
+0.7767937537204394
+Cosin+urf
+Mean AP: 0.4%
+CMC Scores:
+  top-1           0.3%
+  top-5           1.2%
+  top-10          2.0%
+0.004111712910277246
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 82.3%
+CMC Scores:
+  top-1          79.5%
+  top-5          97.4%
+  top-10         98.5%
+0.8228217133055159
+k:  13
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.143 (0.150)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.94895339012146
+Extract Features: [100/102]	Time 0.143 (0.150)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.6065449714660645
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0921704769134521s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.1083574295043945s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.38989806175231934s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: 0.029781565070152283
+Weights: [ 1.4500142  -1.18567675]
+Bias: 0.18666718592846848
+Cosin+urf+cce
+Mean AP: 78.2%
+CMC Scores:
+  top-1          66.1%
+  top-5          96.7%
+  top-10         98.3%
+0.7821736469723328
+Cosin+urf
+Mean AP: 0.5%
+CMC Scores:
+  top-1           0.4%
+  top-5           1.3%
+  top-10          2.5%
+0.004850510105197371
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 82.3%
+CMC Scores:
+  top-1          79.2%
+  top-5          97.5%
+  top-10         98.4%
+0.8232809636373911
+k:  14
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.889373302459717
+Extract Features: [100/102]	Time 0.142 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.5163328647613525
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0385360717773438s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0192537307739258s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.3843719959259033s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.01947168819606304
+Weights: [ 1.43043222 -1.17213837]
+Bias: 0.18416527701643942
+Cosin+urf+cce
+Mean AP: 78.7%
+CMC Scores:
+  top-1          66.8%
+  top-5          96.8%
+  top-10         98.4%
+0.7867668215115715
+Cosin+urf
+Mean AP: 0.5%
+CMC Scores:
+  top-1           0.4%
+  top-5           1.3%
+  top-10          2.6%
+0.004857071454070436
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 82.2%
+CMC Scores:
+  top-1          78.5%
+  top-5          97.5%
+  top-10         98.4%
+0.8224255419231498
+k:  15
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.143 (0.148)	Data 0.000 (0.005)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.885256052017212
+Extract Features: [100/102]	Time 0.142 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.478567838668823
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0339491367340088s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0092275142669678s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.38250207901000977s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.06568556278944016
+Weights: [ 1.42939222 -1.17372097]
+Bias: 0.18430798817571725
+Cosin+urf+cce
+Mean AP: 79.5%
+CMC Scores:
+  top-1          69.2%
+  top-5          96.9%
+  top-10         98.4%
+0.7950302253633355
+Cosin+urf
+Mean AP: 0.5%
+CMC Scores:
+  top-1           0.4%
+  top-5           1.4%
+  top-10          2.6%
+0.0048622855813231095
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 82.3%
+CMC Scores:
+  top-1          79.1%
+  top-5          97.5%
+  top-10         98.3%
+0.8232206570160394
+k:  16
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.906205892562866
+Extract Features: [100/102]	Time 0.143 (0.148)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.441186428070068
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.2380683422088623s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0157496929168701s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.3779158592224121s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: 0.00735087925568223
+Weights: [ 1.4422691  -1.18833987]
+Bias: 0.18634932909140736
+Cosin+urf+cce
+Mean AP: 79.6%
+CMC Scores:
+  top-1          69.9%
+  top-5          96.8%
+  top-10         98.4%
+0.7959479189338454
+Cosin+urf
+Mean AP: 0.5%
+CMC Scores:
+  top-1           0.4%
+  top-5           1.4%
+  top-10          2.7%
+0.004936693689589629
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 82.3%
+CMC Scores:
+  top-1          79.0%
+  top-5          97.3%
+  top-10         98.3%
+0.8226890654327045
+k:  17
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.143 (0.148)	Data 0.000 (0.005)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.863174676895142
+Extract Features: [100/102]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.46735954284668
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.123556137084961s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0126309394836426s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.3861880302429199s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.07226601988077164
+Weights: [ 1.47665313 -1.21157027]
+Bias: 0.187279473659538
+Cosin+urf+cce
+Mean AP: 80.0%
+CMC Scores:
+  top-1          71.5%
+  top-5          96.9%
+  top-10         98.3%
+0.8002997291621015
+Cosin+urf
+Mean AP: 0.5%
+CMC Scores:
+  top-1           0.4%
+  top-5           1.6%
+  top-10          3.2%
+0.005483605632069017
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 82.2%
+CMC Scores:
+  top-1          79.3%
+  top-5          97.3%
+  top-10         98.2%
+0.8219158138798827
+k:  18
+
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar'
+missing keys in state_dict: {'classifier0_32621.weight'}
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.79408597946167
+Extract Features: [100/102]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 6.429091215133667
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=0.9924306869506836s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0195660591125488s
+The HC Re-cluster result: num cluster = 780(model) // 780(model_ema) 	 num outliers = 559(model) // 559(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.3815042972564697s
+The UCIS result: num clean cluster = 780(model) 	 num outliers = 559(model)
+mdoel:new class are [781], length of new dataset is 12377
+Cosine Similarity: -0.15584422647953033
+Weights: [ 1.38033925 -1.13016572]
+Bias: 0.18886081108491345
+Cosin+urf+cce
+Mean AP: 80.2%
+CMC Scores:
+  top-1          72.5%
+  top-5          97.1%
+  top-10         98.3%
+0.802200516161051
+Cosin+urf
+Mean AP: 0.6%
+CMC Scores:
+  top-1           0.4%
+  top-5           1.9%
+  top-10          3.6%
+0.006037456696283695
+Sim Cosin
+Mean AP: 81.2%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.8%
+  top-10         98.7%
+0.8115048919650738
+urf
+Mean AP: 82.1%
+CMC Scores:
+  top-1          79.4%
+  top-5          97.2%
+  top-10         98.3%
+0.8214805527670791
+k:  19
+

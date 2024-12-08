@@ -1,0 +1,60 @@
+==========
+Args:Namespace(seed=1, dataset_target='msmt17', logs_dir='/hgst/longdn/UCF-main/logs/WDA/duke2msmt/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', k1=20, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> MSMT17 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |  1041 |    32621 |         9
+  query    |  3060 |    11659 |         9
+  gallery  |  3060 |    82161 |         9
+  ----------------------------------------
+==========
+Args:Namespace(seed=1, dataset_target='msmt17', logs_dir='/hgst/longdn/UCF-main/logs/WDA/duke2msmt/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar', k1=20, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2msmt/model_best.pth.tar
+=> MSMT17 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |  1041 |    32621 |         9
+  query    |  3060 |    11659 |         9
+  gallery  |  3060 |    82161 |         9
+  ----------------------------------------
+Extract Features: [100/255]	Time 0.143 (0.453)	Data 0.000 (0.304)	
+Extract Features: [200/255]	Time 0.143 (0.588)	Data 0.000 (0.442)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 80.19992566108704
+Extract Features: [100/255]	Time 0.143 (0.146)	Data 0.000 (0.003)	
+Extract Features: [200/255]	Time 0.143 (0.145)	Data 0.000 (0.002)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 77.66098666191101
+1
+reCluster!use silhouette score and tao=0.0
+each uncer num= [19007, 2000, 2002, 2189, 2202, 1227, 1256, 623, 288, 319, 52, 31] average= 2599.6666666666665 uncer_average= -0.002051979
+HC finish! Cost time=140.835755109787s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [19007, 2000, 2002, 2189, 2202, 1227, 1256, 623, 288, 319, 52, 31] average= 2599.6666666666665 uncer_average= -0.002051979
+HC finish! Cost time=139.74948716163635s
+The HC Re-cluster result: num cluster = 1439(model) // 1439(model_ema) 	 num outliers = 11760(model) // 11760(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=29.12521266937256s
+The UCIS result: num clean cluster = 1439(model) 	 num outliers = 11760(model)
+54
+mdoel:new class are [1440], length of new dataset is 20861
+Cosine Similarity: 0.0907534807920456
+Weights: [0.13823157 0.29423652]
+Bias: 0.34019554142181474

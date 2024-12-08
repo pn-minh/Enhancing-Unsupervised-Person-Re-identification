@@ -4,7 +4,6 @@ import os.path as osp
 import random
 import numpy as np
 import sys
-
 import hdbscan
 from sklearn.cluster import DBSCAN
 from sklearn import metrics
@@ -253,7 +252,7 @@ def main_worker(args):
     epoch = 0
     eps = 0.6
     print('Clustering criterion: eps: {:.3f}'.format(eps))
-    # cluster = DBSCAN(eps=eps, min_samples=4, metric='precomputed', n_jobs=-1)
+    cluster = DBSCAN(eps=eps, min_samples=4, metric='precomputed', n_jobs=-1)
     cluster = hdbscan.HDBSCAN(metric='precomputed')
     evaluator = Evaluator(model)
     evaluator_ema = Evaluator(model_ema)
@@ -434,9 +433,9 @@ def main_worker(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="UCF Training")
     # data
-    parser.add_argument('-st', '--dataset-source', type=str, default='market1501',
+    parser.add_argument('-st', '--dataset-source', type=str, default='duke',
                         choices=datasets.names())
-    parser.add_argument('-tt', '--dataset-target', type=str, default='dukemtmc',
+    parser.add_argument('-tt', '--dataset-target', type=str, default='market1501',
                         choices=datasets.names())
     parser.add_argument('-b', '--batch-size', type=int, default=128)
     parser.add_argument('-j', '--workers', type=int, default=6)
@@ -471,7 +470,7 @@ if __name__ == '__main__':
     parser.add_argument('--weight-decay', type=float, default=5e-4)
     parser.add_argument('--soft-ce-weight', type=float, default=0.5)
     parser.add_argument('--soft-tri-weight', type=float, default=0.8)
-    parser.add_argument('--epochs', type=int, default=200)
+    parser.add_argument('--epochs', type=int, default=50)
     parser.add_argument('--iters', type=int, default=200)
 
     parser.add_argument('--lambda-value', type=float, default=0)
@@ -480,7 +479,7 @@ if __name__ == '__main__':
     parser.add_argument('--rr-gpu', action='store_true',
                         help="use GPU for accelerating clustering")
     parser.add_argument('--init-1', type=str,
-                        default='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar',
+                        default='/hgst/longdn/UCF-main/logs/model_best.pth.tar',
                         metavar='PATH')
 
     parser.add_argument('--seed', type=int, default=1)
@@ -493,7 +492,7 @@ if __name__ == '__main__':
                         default=osp.join(working_dir, 'data'))
     parser.add_argument('--logs-dir', type=str, metavar='PAT H',
                         default=osp.join(working_dir,
-                                         '/hgst/longdn/UCF-main/logs/dbscan/market2dukev2/'))
+                                         '/hgst/longdn/UCF-main/logs/'))
     parser.add_argument('--log-name',type=str,default='')
 
     # UCF setting

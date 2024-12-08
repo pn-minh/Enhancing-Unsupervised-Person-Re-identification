@@ -1,0 +1,1224 @@
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.142 (0.239)	Data 0.000 (0.054)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.81980586051941
+Extract Features: [100/130]	Time 0.241 (0.266)	Data 0.000 (0.029)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.740108013153076
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=4.3545918464660645s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.0869653224945068s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.8873302936553955s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.018054883927106857
+Weights: [0.27467857 0.22993574]
+Bias: 0.12079619881490133
+Cosin+urf+cce
+Mean AP: 76.4%
+CMC Scores:
+  top-1          84.6%
+  top-5          91.4%
+  top-10         93.3%
+0.7640871673009054
+Cosin+urf
+Mean AP: 74.8%
+CMC Scores:
+  top-1          83.6%
+  top-5          90.8%
+  top-10         93.0%
+0.7482041182900451
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 74.5%
+CMC Scores:
+  top-1          80.3%
+  top-5          90.4%
+  top-10         92.8%
+0.7451810928008374
+k:  2
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.227 (0.227)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.80637264251709
+Extract Features: [100/130]	Time 0.186 (0.280)	Data 0.000 (0.062)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.25015926361084
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.678069829940796s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.4155898094177246s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.7132315635681152s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.013545133173465729
+Weights: [0.49082053 0.02214042]
+Bias: 0.12424382498208719
+Cosin+urf+cce
+Mean AP: 76.7%
+CMC Scores:
+  top-1          84.1%
+  top-5          91.6%
+  top-10         93.4%
+0.7669823563806228
+Cosin+urf
+Mean AP: 71.9%
+CMC Scores:
+  top-1          83.7%
+  top-5          91.3%
+  top-10         93.5%
+0.7191952522910755
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 75.4%
+CMC Scores:
+  top-1          80.7%
+  top-5          90.8%
+  top-10         93.0%
+0.7539443479162447
+k:  3
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.203 (0.210)	Data 0.000 (0.009)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.748167037963867
+Extract Features: [100/130]	Time 0.211 (0.227)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.692405700683594
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.5741052627563477s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.456195592880249s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6847574710845947s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.12603555619716644
+Weights: [ 0.76406106 -0.23695322]
+Bias: 0.13092935802804878
+Cosin+urf+cce
+Mean AP: 76.6%
+CMC Scores:
+  top-1          82.0%
+  top-5          91.4%
+  top-10         93.2%
+0.7663570021486965
+Cosin+urf
+Mean AP: 63.3%
+CMC Scores:
+  top-1          80.3%
+  top-5          90.3%
+  top-10         93.0%
+0.6326746764082564
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 75.8%
+CMC Scores:
+  top-1          80.3%
+  top-5          90.6%
+  top-10         92.8%
+0.7580372125413832
+k:  4
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.224 (0.227)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.948041677474976
+Extract Features: [100/130]	Time 0.218 (0.225)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.37967038154602
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.1686792373657227s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.080772638320923s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.649162769317627s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.07298322021961212
+Weights: [ 1.11815699 -0.54776391]
+Bias: 0.1298083843477507
+Cosin+urf+cce
+Mean AP: 76.6%
+CMC Scores:
+  top-1          80.9%
+  top-5          91.9%
+  top-10         93.5%
+0.7655291408955899
+Cosin+urf
+Mean AP: 49.1%
+CMC Scores:
+  top-1          71.9%
+  top-5          85.9%
+  top-10         90.4%
+0.4910672454633742
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 76.1%
+CMC Scores:
+  top-1          80.3%
+  top-5          90.9%
+  top-10         93.1%
+0.7611066601267406
+k:  5
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.216 (0.224)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.043078184127808
+Extract Features: [100/130]	Time 0.232 (0.226)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.035547256469727
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.4072484970092773s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.4000415802001953s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6213259696960449s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.034882307052612305
+Weights: [ 1.30919623 -0.71713947]
+Bias: 0.1287183690647929
+Cosin+urf+cce
+Mean AP: 76.5%
+CMC Scores:
+  top-1          79.1%
+  top-5          91.7%
+  top-10         93.4%
+0.7645326884595695
+Cosin+urf
+Mean AP: 39.8%
+CMC Scores:
+  top-1          63.2%
+  top-5          81.6%
+  top-10         87.3%
+0.3981940797450629
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 76.4%
+CMC Scores:
+  top-1          80.2%
+  top-5          90.8%
+  top-10         93.0%
+0.7637141195240085
+k:  6
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.213 (0.226)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.183866500854492
+Extract Features: [100/130]	Time 0.240 (0.228)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.894550085067749
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.402738571166992s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.398761510848999s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6187524795532227s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: 0.04180619493126869
+Weights: [ 1.51834175 -0.91885249]
+Bias: 0.1354250311154953
+Cosin+urf+cce
+Mean AP: 76.2%
+CMC Scores:
+  top-1          78.0%
+  top-5          91.7%
+  top-10         93.4%
+0.7619663844423332
+Cosin+urf
+Mean AP: 28.3%
+CMC Scores:
+  top-1          48.6%
+  top-5          74.0%
+  top-10         80.7%
+0.28253823513364995
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 76.5%
+CMC Scores:
+  top-1          80.0%
+  top-5          90.8%
+  top-10         93.2%
+0.7651465772182979
+k:  7
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.224 (0.228)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 10.101858139038086
+Extract Features: [100/130]	Time 0.238 (0.263)	Data 0.000 (0.044)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.951673984527588
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.4651381969451904s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.362116813659668s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6692571640014648s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: 0.04750046133995056
+Weights: [ 1.74173124 -1.11876982]
+Bias: 0.1376177503315703
+Cosin+urf+cce
+Mean AP: 76.1%
+CMC Scores:
+  top-1          76.8%
+  top-5          91.3%
+  top-10         93.4%
+0.7614177437054932
+Cosin+urf
+Mean AP: 19.9%
+CMC Scores:
+  top-1          35.7%
+  top-5          64.4%
+  top-10         73.1%
+0.1991107728495979
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 76.7%
+CMC Scores:
+  top-1          80.0%
+  top-5          90.3%
+  top-10         92.9%
+0.7670108841574601
+k:  8
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.402 (0.398)	Data 0.259 (0.222)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 16.599243879318237
+Extract Features: [100/130]	Time 0.143 (0.185)	Data 0.000 (0.042)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.601900100708008
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3909225463867188s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3614675998687744s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.745711088180542s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.11161216348409653
+Weights: [ 2.01388665 -1.37519344]
+Bias: 0.1440119051844953
+Cosin+urf+cce
+Mean AP: 76.3%
+CMC Scores:
+  top-1          77.1%
+  top-5          91.2%
+  top-10         93.3%
+0.7625735751390152
+Cosin+urf
+Mean AP: 11.7%
+CMC Scores:
+  top-1          19.7%
+  top-5          49.5%
+  top-10         60.8%
+0.11705839191266275
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 76.9%
+CMC Scores:
+  top-1          80.4%
+  top-5          90.4%
+  top-10         93.0%
+0.7690142620810515
+k:  9
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.142 (0.150)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.738083839416504
+Extract Features: [100/130]	Time 0.143 (0.150)	Data 0.000 (0.008)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.617835998535156
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3606176376342773s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3486602306365967s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6082041263580322s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: 0.02979222685098648
+Weights: [ 2.00227867 -1.34777058]
+Bias: 0.13589790211616737
+Cosin+urf+cce
+Mean AP: 76.0%
+CMC Scores:
+  top-1          76.4%
+  top-5          90.7%
+  top-10         93.1%
+0.7602161615097984
+Cosin+urf
+Mean AP: 12.9%
+CMC Scores:
+  top-1          23.4%
+  top-5          52.8%
+  top-10         62.7%
+0.12943196519896263
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 77.0%
+CMC Scores:
+  top-1          79.4%
+  top-5          90.4%
+  top-10         93.0%
+0.7697018749958494
+k:  10
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.680823802947998
+Extract Features: [100/130]	Time 0.142 (0.149)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.60224199295044
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3628296852111816s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3504638671875s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6056003570556641s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: 0.04665769636631012
+Weights: [ 2.17969193 -1.52234021]
+Bias: 0.14439401385420692
+Cosin+urf+cce
+Mean AP: 75.9%
+CMC Scores:
+  top-1          76.0%
+  top-5          90.9%
+  top-10         93.3%
+0.7590463870729538
+Cosin+urf
+Mean AP: 8.7%
+CMC Scores:
+  top-1          15.1%
+  top-5          41.4%
+  top-10         54.7%
+0.08708917458259388
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 77.0%
+CMC Scores:
+  top-1          79.7%
+  top-5          90.4%
+  top-10         92.9%
+0.7701010944642367
+k:  11
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.142 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.666787147521973
+Extract Features: [100/130]	Time 0.142 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.6528902053833
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.378180503845215s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3623414039611816s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.5977773666381836s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.1310323029756546
+Weights: [ 2.33290983 -1.65640009]
+Bias: 0.13942773777716716
+Cosin+urf+cce
+Mean AP: 75.8%
+CMC Scores:
+  top-1          76.0%
+  top-5          90.8%
+  top-10         92.9%
+0.7580990839496453
+Cosin+urf
+Mean AP: 7.1%
+CMC Scores:
+  top-1          12.7%
+  top-5          36.2%
+  top-10         49.3%
+0.07116356955376854
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 77.1%
+CMC Scores:
+  top-1          79.8%
+  top-5          90.4%
+  top-10         92.9%
+0.7709579964965637
+k:  12
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.143 (0.149)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.91408085823059
+Extract Features: [100/130]	Time 0.143 (0.149)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.772750616073608
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3945610523223877s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3931210041046143s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6105937957763672s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.08840526640415192
+Weights: [ 2.30482228 -1.63030303]
+Bias: 0.13905223245926002
+Cosin+urf+cce
+Mean AP: 75.8%
+CMC Scores:
+  top-1          75.9%
+  top-5          91.0%
+  top-10         93.0%
+0.7578861045223928
+Cosin+urf
+Mean AP: 7.4%
+CMC Scores:
+  top-1          13.3%
+  top-5          38.1%
+  top-10         50.5%
+0.07395611946913112
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 77.0%
+CMC Scores:
+  top-1          80.0%
+  top-5          90.6%
+  top-10         93.0%
+0.7702089987854903
+k:  13
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.143 (0.150)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.956853866577148
+Extract Features: [100/130]	Time 0.143 (0.150)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.814127683639526
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.423417806625366s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.4111993312835693s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6092681884765625s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: 0.09455634653568268
+Weights: [ 2.39647084 -1.72323038]
+Bias: 0.14486356483445523
+Cosin+urf+cce
+Mean AP: 75.9%
+CMC Scores:
+  top-1          76.3%
+  top-5          90.8%
+  top-10         93.1%
+0.7591883811201298
+Cosin+urf
+Mean AP: 6.0%
+CMC Scores:
+  top-1          10.6%
+  top-5          32.2%
+  top-10         45.2%
+0.059904633545639484
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 77.0%
+CMC Scores:
+  top-1          80.3%
+  top-5          90.5%
+  top-10         92.9%
+0.7704770101187375
+k:  14
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.143 (0.150)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.65717625617981
+Extract Features: [100/130]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.624735593795776
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.393700361251831s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.376925230026245s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6114530563354492s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.10583692044019699
+Weights: [ 2.38530594 -1.70742942]
+Bias: 0.1464637520556336
+Cosin+urf+cce
+Mean AP: 75.7%
+CMC Scores:
+  top-1          75.3%
+  top-5          90.6%
+  top-10         93.0%
+0.7567779200295924
+Cosin+urf
+Mean AP: 6.5%
+CMC Scores:
+  top-1          11.5%
+  top-5          34.4%
+  top-10         46.6%
+0.06481434497136912
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 77.0%
+CMC Scores:
+  top-1          80.2%
+  top-5          90.5%
+  top-10         92.9%
+0.7695176555952646
+k:  15
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.143 (0.149)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.70990514755249
+Extract Features: [100/130]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.660743713378906
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3654587268829346s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3473713397979736s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6126360893249512s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.05214028060436249
+Weights: [ 2.39893016 -1.72854609]
+Bias: 0.14430887978308354
+Cosin+urf+cce
+Mean AP: 75.3%
+CMC Scores:
+  top-1          75.0%
+  top-5          90.5%
+  top-10         92.8%
+0.7533694299044714
+Cosin+urf
+Mean AP: 6.1%
+CMC Scores:
+  top-1          11.5%
+  top-5          32.6%
+  top-10         44.3%
+0.060703358898038115
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 76.9%
+CMC Scores:
+  top-1          80.4%
+  top-5          90.5%
+  top-10         93.0%
+0.769027017572719
+k:  16
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.143 (0.149)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.856640338897705
+Extract Features: [100/130]	Time 0.143 (0.149)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.813648223876953
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.398965835571289s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.3889572620391846s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6097121238708496s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.05805423855781555
+Weights: [ 2.4240322  -1.74685948]
+Bias: 0.14584130130424228
+Cosin+urf+cce
+Mean AP: 75.5%
+CMC Scores:
+  top-1          75.9%
+  top-5          90.4%
+  top-10         92.8%
+0.7545180937364699
+Cosin+urf
+Mean AP: 6.3%
+CMC Scores:
+  top-1          12.2%
+  top-5          33.1%
+  top-10         45.0%
+0.06263075616048443
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 76.8%
+CMC Scores:
+  top-1          80.2%
+  top-5          90.5%
+  top-10         92.9%
+0.7682676207648604
+k:  17
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.94057583808899
+Extract Features: [100/130]	Time 0.143 (0.150)	Data 0.000 (0.007)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.840446710586548
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.416388988494873s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.4070708751678467s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6135344505310059s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: -0.11414359509944916
+Weights: [ 2.47206317 -1.78851784]
+Bias: 0.14326432167899494
+Cosin+urf+cce
+Mean AP: 75.6%
+CMC Scores:
+  top-1          76.6%
+  top-5          90.7%
+  top-10         93.0%
+0.7559046342582637
+Cosin+urf
+Mean AP: 6.1%
+CMC Scores:
+  top-1          12.3%
+  top-5          32.5%
+  top-10         44.3%
+0.06132723392580995
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 76.7%
+CMC Scores:
+  top-1          80.5%
+  top-5          90.7%
+  top-10         93.0%
+0.767326830065136
+k:  18
+
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA/msmt2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/msmt2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.94069218635559
+Extract Features: [100/130]	Time 0.143 (0.149)	Data 0.000 (0.006)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 9.643462657928467
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.376312017440796s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=2.366271734237671s
+The HC Re-cluster result: num cluster = 1115(model) // 1115(model_ema) 	 num outliers = 862(model) // 862(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.612788200378418s
+The UCIS result: num clean cluster = 1115(model) 	 num outliers = 862(model)
+mdoel:new class are [1116], length of new dataset is 15660
+Cosine Similarity: 0.15743231773376465
+Weights: [ 2.4564441  -1.78773001]
+Bias: 0.14569879317880702
+Cosin+urf+cce
+Mean AP: 75.5%
+CMC Scores:
+  top-1          76.5%
+  top-5          90.8%
+  top-10         92.7%
+0.7547092750242338
+Cosin+urf
+Mean AP: 5.9%
+CMC Scores:
+  top-1          12.1%
+  top-5          31.6%
+  top-10         43.4%
+0.05855464911558177
+Sim Cosin
+Mean AP: 71.4%
+CMC Scores:
+  top-1          83.5%
+  top-5          91.3%
+  top-10         93.8%
+0.7137708879895224
+urf
+Mean AP: 76.7%
+CMC Scores:
+  top-1          80.3%
+  top-5          90.8%
+  top-10         92.9%
+0.7667576822693639
+k:  19
+

@@ -146,29 +146,29 @@ def main_worker(args):
     trainer = PreTrainer(model, num_classes, margin=args.margin)
 
     # Start training
-    # for epoch in range(start_epoch, args.epochs):
-    #     lr_scheduler.step()
-    #     train_loader_source.new_epoch()
-    #     train_loader_target.new_epoch()
+    for epoch in range(start_epoch, args.epochs):
+        lr_scheduler.step()
+        train_loader_source.new_epoch()
+        train_loader_target.new_epoch()
 
-    #     trainer.train(epoch, train_loader_source, train_loader_target, optimizer,
-    #                 train_iters=len(train_loader_source), print_freq=args.print_freq)
+        trainer.train(epoch, train_loader_source, train_loader_target, optimizer,
+                    train_iters=len(train_loader_source), print_freq=args.print_freq)
 
-    #     if ((epoch+1)%args.eval_step==0 or (epoch==args.epochs-1)):
+        if ((epoch+1)%args.eval_step==0 or (epoch==args.epochs-1)):
 
-    #         _, mAP = evaluator.evaluate(test_loader_source, dataset_source.query,
-    #                                     dataset_source.gallery, cmc_flag=True)
+            _, mAP = evaluator.evaluate(test_loader_source, dataset_source.query,
+                                        dataset_source.gallery, cmc_flag=True)
 
-    #         is_best = mAP > best_mAP
-    #         best_mAP = max(mAP, best_mAP)
-    #         save_checkpoint({
-    #             'state_dict': model.state_dict(),
-    #             'epoch': epoch + 1,
-    #             'best_mAP': best_mAP,
-    #         }, is_best, fpath=osp.join(args.logs_dir, 'checkpoint.pth.tar'))
+            is_best = mAP > best_mAP
+            best_mAP = max(mAP, best_mAP)
+            save_checkpoint({
+                'state_dict': model.state_dict(),
+                'epoch': epoch + 1,
+                'best_mAP': best_mAP,
+            }, is_best, fpath=osp.join(args.logs_dir, 'checkpoint.pth.tar'))
 
-    #         print('\n * Finished epoch {:3d}  source mAP: {:5.1%}  best: {:5.1%}{}\n'.
-    #               format(epoch, mAP, best_mAP, ' *' if is_best else ''))
+            print('\n * Finished epoch {:3d}  source mAP: {:5.1%}  best: {:5.1%}{}\n'.
+                  format(epoch, mAP, best_mAP, ' *' if is_best else ''))
 
     print("Test on target domain:")
     evaluator.evaluate(test_loader_target, dataset_target.query, dataset_target.gallery, cmc_flag=True, rerank=args.rerank)
@@ -179,7 +179,7 @@ if __name__ == '__main__':
     # data
     parser.add_argument('-ds', '--dataset-source', type=str, default='market1501',
                         choices=datasets.names())
-    parser.add_argument('-dt', '--dataset-target', type=str, default='duke',
+    parser.add_argument('-dt', '--dataset-target', type=str, default='msmt17',
                         choices=datasets.names())
     parser.add_argument('-b', '--batch-size', type=int, default=128)
     parser.add_argument('-j', '--workers', type=int, default=12)
@@ -203,14 +203,14 @@ if __name__ == '__main__':
     parser.add_argument('--warmup-step', type=int, default=10)
     parser.add_argument('--milestones', nargs='+', type=int, default=[40, 70], help='milestones for the learning rate decay')
     # training configs
-    parser.add_argument('--resume', type=str, default="/hgst/longdn/UCF-main/logs/pretrained/market2duke/model_best.pth.tar", metavar='PATH')
+    parser.add_argument('--resume', type=str, default="/hgst/longdn/UCF-main/logs/pretrained/market2msmt/checkpoint.pth.tar", metavar='PATH')
     #logs/market1501TOdukemtmc/resnet50-pretrain-1_gempooling/model_best.pth.tar
     parser.add_argument('--evaluate', action='store_true',
                         help="evaluation only")
-    parser.add_argument('--eval-step', type=int, default=20)
+    parser.add_argument('--eval-step', type=int, default=5)
     parser.add_argument('--rerank', action='store_true',
                         help="evaluation only")
-    parser.add_argument('--epochs', type=int, default=80)
+    parser.add_argument('--epochs', type=int, default=45)
     parser.add_argument('--iters', type=int, default=200)
     parser.add_argument('--seed', type=int, default=1)
     parser.add_argument('--print-freq', type=int, default=100)
@@ -220,6 +220,6 @@ if __name__ == '__main__':
     parser.add_argument('--data-dir', type=str, metavar='PATH',
                         default=osp.join(working_dir, 'data'))
     parser.add_argument('--logs-dir', type=str, metavar='PATH',
-                        default=osp.join(working_dir, 'logs'))
+                        default=osp.join(working_dir, 'logs/pretrained/market2msmt'))
 
     main()

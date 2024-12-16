@@ -1,0 +1,195 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/121024_1934_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+[tensor([[[[ 0.3309,  0.3309,  0.3481,  ..., -1.3987, -1.1760, -1.1075],
+          [ 0.3309,  0.3309,  0.3481,  ..., -1.4500, -1.3302, -1.2959],
+          [ 0.3309,  0.3309,  0.3481,  ..., -1.5357, -1.6384, -1.6898],
+          ...,
+          [ 0.9303,  0.9303,  0.9303,  ..., -1.2445, -1.2617, -1.2445],
+          [ 0.9132,  0.9132,  0.9303,  ..., -1.2445, -1.2617, -1.2617],
+          [ 0.9132,  0.9132,  0.9303,  ..., -1.2445, -1.2617, -1.2617]],
+
+         [[ 0.4678,  0.4678,  0.4853,  ..., -1.2829, -1.0553, -0.9853],
+          [ 0.4678,  0.4678,  0.4853,  ..., -1.3354, -1.2129, -1.1779],
+          [ 0.4678,  0.4678,  0.4853,  ..., -1.4230, -1.5280, -1.5805],
+          ...,
+          [ 1.0805,  1.0805,  1.0805,  ..., -1.1604, -1.1779, -1.1779],
+          [ 1.0630,  1.0630,  1.0805,  ..., -1.1779, -1.1954, -1.1954],
+          [ 1.0630,  1.0630,  1.0805,  ..., -1.1779, -1.1954, -1.1954]],
+
+         [[ 0.6879,  0.6879,  0.7054,  ..., -1.1596, -0.9330, -0.8633],
+          [ 0.6879,  0.6879,  0.7054,  ..., -1.2119, -1.0898, -1.0550],
+          [ 0.6879,  0.6879,  0.7054,  ..., -1.2990, -1.4036, -1.4559],
+          ...,
+          [ 1.1585,  1.1585,  1.1585,  ..., -0.8981, -0.9156, -0.8981],
+          [ 1.1411,  1.1411,  1.1585,  ..., -0.8981, -0.9156, -0.9156],
+          [ 1.1411,  1.1411,  1.1585,  ..., -0.8981, -0.9156, -0.9156]]],
+
+
+        [[[-1.7240, -1.7240, -1.7240,  ..., -1.3473, -1.3473, -1.3473],
+          [-1.7240, -1.7240, -1.7240,  ..., -1.3644, -1.3644, -1.3644],
+          [-1.7240, -1.7240, -1.7240,  ..., -1.3987, -1.3815, -1.3815],
+          ...,
+          [ 0.4679,  0.4337,  0.3994,  ...,  0.7077,  0.8447,  0.9303],
+          [ 0.3652,  0.3309,  0.2624,  ...,  0.4679,  0.7248,  0.8447],
+          [ 0.3138,  0.2796,  0.2111,  ...,  0.3481,  0.6563,  0.7933]],
+
+         [[-1.6681, -1.6681, -1.6681,  ..., -1.0903, -1.0903, -1.0903],
+          [-1.6681, -1.6681, -1.6681,  ..., -1.1078, -1.1078, -1.1078],
+          [-1.6681, -1.6681, -1.6681,  ..., -1.1429, -1.1253, -1.1253],
+          ...,
+          [ 0.5728,  0.5378,  0.5203,  ...,  0.7654,  0.9055,  0.9930],
+          [ 0.4678,  0.4328,  0.3803,  ...,  0.5203,  0.7829,  0.9055],
+          [ 0.4153,  0.3803,  0.3102,  ...,  0.3978,  0.7129,  0.8529]],
+
+         [[-1.2467, -1.2467, -1.2467,  ..., -0.8807, -0.8807, -0.8807],
+          [-1.2467, -1.2467, -1.2467,  ..., -0.8981, -0.8981, -0.8981],
+          [-1.2467, -1.2467, -1.2467,  ..., -0.9330, -0.9156, -0.9156],
+          ...,
+          [ 0.5834,  0.5485,  0.5136,  ...,  0.6531,  0.7925,  0.8797],
+          [ 0.4788,  0.4439,  0.3742,  ...,  0.4091,  0.6705,  0.7925],
+          [ 0.4265,  0.3916,  0.3219,  ...,  0.2871,  0.6008,  0.7402]]],
+
+
+        [[[ 0.8789,  0.7933,  0.5878,  ..., -0.7308, -0.3369, -0.1486],
+          [ 0.8276,  0.7591,  0.5878,  ..., -0.6109, -0.1657,  0.0227],
+          [ 0.7248,  0.6734,  0.5707,  ..., -0.3712,  0.1597,  0.3994],
+          ...,
+          [ 0.4508,  0.3652,  0.1939,  ...,  0.5878,  0.5878,  0.5707],
+          [ 0.1083,  0.1426,  0.2111,  ...,  0.7419,  0.6392,  0.5878],
+          [-0.0458,  0.0398,  0.2111,  ...,  0.8104,  0.6563,  0.5878]],
+
+         [[ 1.0630,  0.9755,  0.7654,  ..., -0.5301, -0.1099,  0.1001],
+          [ 1.0105,  0.9405,  0.7654,  ..., -0.4076,  0.0651,  0.2752],
+          [ 0.9055,  0.8529,  0.7479,  ..., -0.1275,  0.4328,  0.6779],
+          ...,
+          [ 0.5903,  0.5028,  0.3277,  ...,  0.6604,  0.6604,  0.6429],
+          [ 0.2402,  0.2752,  0.3452,  ...,  0.8179,  0.7129,  0.6604],
+          [ 0.0826,  0.1702,  0.3452,  ...,  0.8880,  0.7304,  0.6604]],
+
+         [[ 0.9145,  0.8274,  0.6182,  ..., -0.5844, -0.1661,  0.0431],
+          [ 0.8622,  0.7925,  0.6182,  ..., -0.4450,  0.0082,  0.2348],
+          [ 0.7576,  0.7054,  0.6008,  ..., -0.1487,  0.3916,  0.6531],
+          ...,
+          [ 0.8099,  0.7228,  0.5485,  ...,  0.8971,  0.8971,  0.8797],
+          [ 0.4614,  0.4962,  0.5659,  ...,  1.0539,  0.9494,  0.8971],
+          [ 0.3045,  0.3916,  0.5659,  ...,  1.1237,  0.9668,  0.8971]]],
+
+
+        ...,
+
+
+        [[[-0.6965, -0.6965, -0.7137,  ..., -0.8335, -0.8335, -0.8335],
+          [-0.6965, -0.6965, -0.7137,  ..., -0.8335, -0.8335, -0.8335],
+          [-0.6965, -0.6965, -0.7137,  ..., -0.8507, -0.8507, -0.8507],
+          ...,
+          [-0.6109, -0.6109, -0.6281,  ..., -0.4911, -0.4568, -0.4397],
+          [-0.6623, -0.6623, -0.6794,  ..., -0.5082, -0.4739, -0.4568],
+          [-0.6794, -0.6794, -0.6965,  ..., -0.5082, -0.4739, -0.4568]],
+
+         [[-0.8452, -0.8452, -0.8627,  ..., -0.9328, -0.9328, -0.9328],
+          [-0.8452, -0.8452, -0.8627,  ..., -0.9328, -0.9328, -0.9328],
+          [-0.8452, -0.8452, -0.8627,  ..., -0.9503, -0.9503, -0.9503],
+          ...,
+          [-0.8102, -0.8102, -0.8277,  ..., -0.6527, -0.6176, -0.6001],
+          [-0.8627, -0.8627, -0.8803,  ..., -0.6702, -0.6352, -0.6176],
+          [-0.8803, -0.8803, -0.8978,  ..., -0.6702, -0.6352, -0.6176]],
+
+         [[-0.9504, -0.9504, -0.9678,  ..., -1.0898, -1.0898, -1.0898],
+          [-0.9504, -0.9504, -0.9678,  ..., -1.0898, -1.0898, -1.0898],
+          [-0.9504, -0.9504, -0.9678,  ..., -1.1073, -1.1073, -1.1073],
+          ...,
+          [-0.7936, -0.7936, -0.8110,  ..., -0.6541, -0.6193, -0.6018],
+          [-0.8458, -0.8458, -0.8633,  ..., -0.6715, -0.6367, -0.6193],
+          [-0.8633, -0.8633, -0.8807,  ..., -0.6715, -0.6367, -0.6193]]],
+
+
+        [[[ 0.0056,  0.0056,  0.0227,  ..., -0.9363, -0.9192, -0.9192],
+          [ 0.1083,  0.1083,  0.1254,  ..., -0.7993, -0.7993, -0.7993],
+          [ 0.3138,  0.3138,  0.2967,  ..., -0.5082, -0.5424, -0.5424],
+          ...,
+          [-0.4911, -0.4911, -0.4911,  ...,  1.2043,  1.2043,  1.2043],
+          [-0.5082, -0.5082, -0.5082,  ...,  0.9474,  0.9303,  0.9132],
+          [-0.5082, -0.5082, -0.5082,  ...,  0.8276,  0.8104,  0.7933]],
+
+         [[ 0.5028,  0.5028,  0.5203,  ..., -0.7577, -0.7402, -0.7402],
+          [ 0.6078,  0.6078,  0.6254,  ..., -0.6176, -0.6176, -0.6176],
+          [ 0.8004,  0.8004,  0.8004,  ..., -0.3200, -0.3550, -0.3550],
+          ...,
+          [-0.3550, -0.3725, -0.3725,  ...,  1.2731,  1.2731,  1.2731],
+          [-0.3725, -0.3725, -0.4076,  ...,  1.0105,  0.9930,  0.9755],
+          [-0.3725, -0.3725, -0.4076,  ...,  0.8880,  0.8704,  0.8529]],
+
+         [[-0.2532, -0.2532, -0.2358,  ..., -0.9504, -0.9504, -0.9504],
+          [-0.1487, -0.1487, -0.1312,  ..., -0.8284, -0.8284, -0.8458],
+          [ 0.0779,  0.0779,  0.0605,  ..., -0.5495, -0.5844, -0.6018],
+          ...,
+          [-0.2358, -0.2358, -0.2358,  ...,  1.3851,  1.3851,  1.3851],
+          [-0.2532, -0.2532, -0.2707,  ...,  1.1237,  1.1062,  1.0888],
+          [-0.2532, -0.2532, -0.2707,  ...,  1.0017,  0.9842,  0.9668]]],
+
+
+        [[[-1.0733, -1.0733, -1.0562,  ..., -1.2445, -1.2445, -1.2445],
+          [-1.0733, -1.0733, -1.0562,  ..., -1.2445, -1.2445, -1.2445],
+          [-1.0904, -1.0904, -1.0733,  ..., -1.2445, -1.2445, -1.2445],
+          ...,
+          [-0.0116, -0.0116, -0.0287,  ...,  0.1597,  0.1768,  0.1768],
+          [-0.0972, -0.0972, -0.1143,  ...,  0.1254,  0.1426,  0.1426],
+          [-0.1486, -0.1486, -0.1486,  ...,  0.1254,  0.1426,  0.1426]],
+
+         [[-0.9678, -0.9678, -0.9503,  ..., -1.1429, -1.1429, -1.1429],
+          [-0.9678, -0.9678, -0.9503,  ..., -1.1429, -1.1429, -1.1429],
+          [-0.9853, -0.9853, -0.9678,  ..., -1.1429, -1.1429, -1.1429],
+          ...,
+          [ 0.0126,  0.0126, -0.0049,  ...,  0.1877,  0.2052,  0.2052],
+          [-0.0749, -0.0749, -0.0924,  ...,  0.1527,  0.1702,  0.1702],
+          [-0.1275, -0.1275, -0.1275,  ...,  0.1527,  0.1702,  0.1702]],
+
+         [[-0.7413, -0.7413, -0.7238,  ..., -0.9156, -0.9156, -0.9156],
+          [-0.7413, -0.7413, -0.7238,  ..., -0.9156, -0.9156, -0.9156],
+          [-0.7587, -0.7587, -0.7413,  ..., -0.9156, -0.9156, -0.9156],
+          ...,
+          [ 0.2348,  0.2348,  0.2173,  ...,  0.4788,  0.4962,  0.4962],
+          [ 0.1476,  0.1476,  0.1302,  ...,  0.4439,  0.4614,  0.4614],
+          [ 0.0953,  0.0953,  0.0953,  ...,  0.4439,  0.4614,  0.4614]]]]), ['/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0476_c3s1_124108_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0283_c6s1_065601_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0715_c3s2_059153_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/1223_c5s3_014415_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c2s3_043932_11.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1087_c6s3_008317_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c1s4_062636_06.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1174_c5s3_006068_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0228_c2s1_046876_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c6s3_041142_05.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1199_c5s3_011940_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0300_c6s1_067226_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0511_c4s2_067573_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1450_c6s3_082042_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0290_c1s1_064406_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0811_c4s4_037435_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c2s2_140352_08.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0247_c1s1_063556_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0541_c2s1_159916_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1452_c3s3_057503_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1324_c3s3_056203_08.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0764_c3s2_074928_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0263_c3s1_055592_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0577_c4s3_032979_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0805_c1s4_041231_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/1034_c2s2_130977_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0194_c1s1_060131_05.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1436_c5s3_073462_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0034_c6s1_005226_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0542_c3s1_155583_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0425_c5s1_104923_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0295_c5s1_066923_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0458_c5s3_081437_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0567_c3s2_007112_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/1154_c4s5_038610_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/1095_c6s3_010567_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1125_c1s5_020336_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c6s2_084243_12.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0786_c5s2_083227_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c4s1_000101_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0460_c3s1_116958_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0732_c1s4_002481_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0284_c2s1_062046_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1273_c3s3_041228_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c3s1_102742_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c5s2_010980_07.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1329_c1s5_063391_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1347_c2s3_034182_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1229_c3s3_014928_05.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0322_c5s1_073148_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0715_c5s2_059677_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1395_c2s3_048632_05.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0260_c5s2_113952_07.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1233_c1s5_042416_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0520_c4s2_070673_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c6s2_038968_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1293_c3s3_030028_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/1084_c2s2_142202_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0783_c3s2_099053_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0024_c6s1_002576_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0812_c1s4_037856_04.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0949_c5s2_120999_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c4s5_057785_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1236_c6s3_040542_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1497_c5s3_062740_04.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1264_c5s3_033140_05.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1440_c2s3_050007_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c6s3_064367_06.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0498_c5s1_132020_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1279_c2s3_020257_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1084_c5s2_151624_05.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0944_c1s4_058061_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0228_c1s1_057956_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0312_c3s1_071917_06.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0846_c2s2_104532_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0417_c1s2_036916_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1137_c3s3_010728_05.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1070_c6s3_020292_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0974_c5s2_119899_04.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1118_c5s3_000518_05.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c1s4_040531_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0736_c2s2_081657_07.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0387_c2s1_090996_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1484_c1s6_012741_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0996_c6s2_122243_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0336_c1s2_005191_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1319_c5s3_046515_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1418_c5s3_051115_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0373_c3s1_088442_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0687_c3s2_064153_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0569_c1s3_021526_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1251_c3s3_020478_09.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0884_c1s4_049031_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0784_c6s2_126668_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1417_c2s3_068452_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/1388_c4s6_003535_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1459_c6s3_082167_04.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0267_c1s1_056806_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1224_c3s3_013803_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c1s4_051506_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1154_c1s5_039241_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0950_c6s2_114293_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0488_c3s1_127233_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0514_c1s2_069346_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0723_c3s2_079903_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0794_c3s2_089353_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0018_c5s1_001776_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0227_c6s1_047751_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/0292_c2s1_064621_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0631_c6s2_030043_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c5s1_109723_06.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0240_c2s1_049726_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0722_c6s2_055693_07.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0874_c3s3_070019_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1416_c3s3_095169_02.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1248_c6s3_044492_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1388_c4s6_003585_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0034_c6s1_005126_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1061_c4s5_004829_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0045_c5s3_073662_05.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1090_c3s3_070594_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/1488_c3s3_071369_01.jpg.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c5s2_079602_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c2s1_014776_04.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0345_c5s1_096923_01.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0000_c1s2_065496_03.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/query/1190_c3s3_007928_00.jpg', '/hgst/longdn/UCF-main/data/market1501/Market-1501-v15.09.15/bounding_box_test/0066_c5s1_013476_01.jpg'], tensor([ 476,  283,  715, 1223,    0, 1087,    0, 1174,  228,    0, 1199,  300,
+         511, 1450,  290,  811,    0,  247,  541, 1452, 1324,  764,  263,  577,
+         805, 1034,  194, 1436,   34,  542,  425,  295,  458,  567, 1154, 1095,
+        1125,    0,  786,    0,  460,  732,  284, 1273,    0,    0, 1329, 1347,
+        1229,  322,  715, 1395,  260, 1233,  520,    0, 1293, 1084,  783,   24,
+         812,  949,    0, 1236, 1497, 1264, 1440,    0,  498, 1279, 1084,  944,
+         228,  312,  846,  417, 1137, 1070,  974, 1118,    0,  736,  387, 1484,
+         996,  336, 1319, 1418,  373,  687,  569, 1251,  884,  784, 1417, 1388,
+        1459,  267, 1224,    0, 1154,  950,  488,  514,  723,  794,   18,  227,
+         292,  631,    0,  240,  722,  874, 1416, 1248, 1388,   34, 1061,   45,
+        1090, 1488,    0,    0,  345,    0, 1190,   66]), tensor([2, 5, 2, 4, 1, 5, 0, 4, 1, 5, 4, 5, 3, 5, 0, 3, 1, 0, 1, 2, 2, 2, 2, 3,
+        0, 1, 0, 4, 5, 2, 4, 4, 4, 2, 3, 5, 0, 5, 4, 3, 2, 0, 1, 2, 2, 4, 0, 1,
+        2, 4, 4, 1, 4, 0, 3, 5, 2, 1, 2, 5, 0, 4, 3, 5, 4, 4, 1, 5, 4, 1, 4, 0,
+        0, 2, 1, 0, 2, 5, 4, 4, 0, 1, 1, 0, 5, 0, 4, 4, 2, 2, 0, 2, 0, 5, 1, 3,
+        5, 0, 2, 0, 0, 5, 2, 0, 2, 2, 4, 5, 1, 5, 4, 1, 5, 2, 2, 5, 3, 5, 3, 4,
+        2, 2, 4, 1, 4, 0, 2, 4]), tensor([  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,
+         14,  15,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25,  26,  27,
+         28,  29,  30,  31,  32,  33,  34,  35,  36,  37,  38,  39,  40,  41,
+         42,  43,  44,  45,  46,  47,  48,  49,  50,  51,  52,  53,  54,  55,
+         56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,
+         70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,
+         84,  85,  86,  87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,
+         98,  99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111,
+        112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125,
+        126, 127])]
+Extracting features...

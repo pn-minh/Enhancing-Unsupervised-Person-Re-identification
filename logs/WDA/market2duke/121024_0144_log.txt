@@ -1,0 +1,18 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/market2duke/121024_0144_log.txt
+Euclidean distance +urf+cce
+Mean AP: 0.0%
+CMC Scores:
+  top-1           0.0%
+  top-5           0.0%
+  top-10          0.0%
+0.0004659730171253986
+Cost time=24.734322547912598s
+Euclidean distance + urf
+Mean AP: 73.5%
+CMC Scores:
+  top-1          83.6%
+  top-5          91.5%
+  top-10         93.6%
+0.734995139512958
+Cost time=24.720109462738037s
+k:  2

@@ -1,0 +1,91 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/market2duke/120824_2231_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=20, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.525 (0.273)	Data 0.383 (0.087)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 42.16395854949951
+Extract Features: [100/130]	Time 0.143 (0.145)	Data 0.000 (0.003)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 41.67387104034424
+1
+reCluster!use silhouette score and tao=0.0
+each uncer num= [6345, 408, 843, 1434, 1414, 1574, 1818, 884, 148, 210] average= 1507.8 uncer_average= -0.0059996243
+HC finish! Cost time=50.644795179367065s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [6345, 408, 843, 1434, 1414, 1574, 1818, 884, 148, 210] average= 1507.8 uncer_average= -0.0059996243
+HC finish! Cost time=46.903074502944946s
+The HC Re-cluster result: num cluster = 724(model) // 724(model_ema) 	 num outliers = 8057(model) // 8057(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.7893350124359131s
+The UCIS result: num clean cluster = 724(model) 	 num outliers = 8057(model)
+mdoel:new class are [725], length of new dataset is 8465
+Cosine Similarity: 1.3976566791534424
+Weights: [-88.39123758 -25.98892748]
+Bias: 185.00319628432044
+Cosine Similarity: 1.3643057346343994
+Weights: [-64.42042828 -47.22956153]
+Bias: 178.84678991142437
+Cosine Similarity: 1.426236867904663
+Weights: [-47.63450254 -61.91817118]
+Bias: 174.21246180968745
+Cosine Similarity: 1.462209701538086
+Weights: [-39.37402984 -70.45216566]
+Bias: 172.08141195362717
+Cosine Similarity: 1.4280641078948975
+Weights: [-30.47821382 -78.25760682]
+Bias: 169.4743580993883
+Cosine Similarity: 1.4626777172088623
+Weights: [-29.57281456 -79.68358701]
+Bias: 169.05974053353304
+Cosine Similarity: 1.4811270236968994
+Weights: [-26.16677804 -84.48104025]
+Bias: 169.42289153971402
+Cosine Similarity: 1.3228752613067627
+Weights: [-27.21212143 -85.28323944]
+Bias: 170.7989302232006
+Cosine Similarity: 1.3186010122299194
+Weights: [-25.39429776 -88.16417651]
+Bias: 171.22201540063617
+Cosine Similarity: 1.483229398727417
+Weights: [-24.3466832  -90.64561327]
+Bias: 172.25634128150853
+Cosine Similarity: 1.433870553970337
+Weights: [-24.98325968 -91.53968822]
+Bias: 173.77826358135405
+Cosine Similarity: 1.4590600728988647
+Weights: [-27.93292824 -90.35217212]
+Bias: 175.8257990035035
+Cosine Similarity: 1.3928459882736206
+Weights: [-27.79982438 -91.96269451]
+Bias: 176.71443808368426
+Cosine Similarity: 1.4742152690887451
+Weights: [-28.50451569 -92.81462142]
+Bias: 178.27681330370967
+Cosine Similarity: 1.376873254776001
+Weights: [-28.60499432 -95.07711181]
+Bias: 180.33840826684417
+Cosine Similarity: 1.371302604675293
+Weights: [-27.72324057 -96.47998968]
+Bias: 180.63931650554557
+Cosine Similarity: 1.3428494930267334
+Weights: [-26.78077148 -99.38369806]
+Bias: 182.23490441909314
+Cosine Similarity: 1.3934392929077148
+Weights: [-30.15050367 -97.08155866]
+Bias: 183.9918838586842

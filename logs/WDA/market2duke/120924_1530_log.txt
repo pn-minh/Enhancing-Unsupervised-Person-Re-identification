@@ -1,0 +1,91 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/market2duke/120924_1530_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=20, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.143 (0.151)	Data 0.000 (0.004)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 40.52745819091797
+Extract Features: [100/130]	Time 0.143 (0.146)	Data 0.000 (0.003)	
+Computing jaccard distance...
+Jaccard distance computing time cost: 40.35838961601257
+1
+reCluster!use silhouette score and tao=0.0
+each uncer num= [6345, 408, 843, 1434, 1414, 1574, 1818, 884, 148, 210] average= 1507.8 uncer_average= -0.0059996243
+HC finish! Cost time=46.983954668045044s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [6345, 408, 843, 1434, 1414, 1574, 1818, 884, 148, 210] average= 1507.8 uncer_average= -0.0059996243
+HC finish! Cost time=46.994123458862305s
+The HC Re-cluster result: num cluster = 724(model) // 724(model_ema) 	 num outliers = 8057(model) // 8057(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.6743326187133789s
+The UCIS result: num clean cluster = 724(model) 	 num outliers = 8057(model)
+mdoel:new class are [725], length of new dataset is 8465
+Euclidean distance: 1.3976566791534424
+Weights: [-0.43572374 -0.25771945]
+Bias: 1.113392978861828
+Euclidean distance: 1.3643057346343994
+Weights: [-0.71879937 -0.01620932]
+Bias: 1.1815177528903236
+Euclidean distance: 1.426236867904663
+Weights: [-0.97245919  0.20837258]
+Bias: 1.240000154050296
+Euclidean distance: 1.462209701538086
+Weights: [-1.23104465  0.43123236]
+Bias: 1.3158317085867433
+Euclidean distance: 1.4280641078948975
+Weights: [-1.4666437   0.64931915]
+Bias: 1.372330690457493
+Euclidean distance: 1.4626777172088623
+Weights: [-1.4559169   0.64676067]
+Bias: 1.3720543989175928
+Euclidean distance: 1.4811270236968994
+Weights: [-1.5123288   0.71255652]
+Bias: 1.3762027029757373
+Euclidean distance: 1.3228752613067627
+Weights: [-1.48994017  0.69966941]
+Bias: 1.3635496621751244
+Euclidean distance: 1.3186010122299194
+Weights: [-1.49790086  0.71769191]
+Bias: 1.3570001678432666
+Euclidean distance: 1.483229398727417
+Weights: [-1.52745845  0.75669186]
+Bias: 1.3626504630599297
+Euclidean distance: 1.433870553970337
+Weights: [-1.53131365  0.7781949 ]
+Bias: 1.3463714243303755
+Euclidean distance: 1.4590600728988647
+Weights: [-1.44476037  0.69855551]
+Bias: 1.3242192285215322
+Euclidean distance: 1.3928459882736206
+Weights: [-1.43755921  0.70928651]
+Bias: 1.3036790921438741
+Euclidean distance: 1.4742152690887451
+Weights: [-1.43014579  0.7135031 ]
+Bias: 1.2930718018116103
+Euclidean distance: 1.376873254776001
+Weights: [-1.34897709  0.64487757]
+Bias: 1.2654197892434467
+Euclidean distance: 1.371302604675293
+Weights: [-1.36121473  0.66386178]
+Bias: 1.263835040722555
+Euclidean distance: 1.3428494930267334
+Weights: [-1.41046485  0.7361633 ]
+Bias: 1.2505393329829508
+Euclidean distance: 1.3934392929077148
+Weights: [-1.3646826   0.68512184]
+Bias: 1.2483081742840405

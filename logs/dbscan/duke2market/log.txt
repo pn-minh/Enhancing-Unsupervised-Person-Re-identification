@@ -1,0 +1,1992 @@
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Test on the best model.
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+Extract Features: [100/151]	Time 0.802 (0.777)	Data 0.000 (0.003)	
+Mean AP: 83.6%
+CMC Scores:
+  top-1          93.6%
+  top-5          97.7%
+  top-10         98.5%
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.781 (0.914)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 235.3548493385315
+==> Create pseudo labels for unlabeled target domain with model_ema
+Extract Features: [100/102]	Time 0.750 (0.753)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 99.22228765487671
+The orignal cluster result: num cluster = 768(model) // 772(model_ema) 	 num outliers = 571(model) // 546(model_ema)
+Applying hierarchical clustering
+[530 369 368 ... 485 591  73]
+(12936,)
+(array([   16,    47,    58,   128,   130,   144,   151,   154,   181,
+         182,   191,   221,   233,   320,   336,   346,   366,   381,
+         390,   395,   400,   410,   442,   443,   475,   485,   497,
+         530,   541,   591,   602,   634,   641,   663,   685,   688,
+         689,   704,   716,   728,   784,   787,   824,   827,   838,
+         866,   874,   896,   909,   918,   941,  1006,  1018,  1019,
+        1064,  1106,  1153,  1176,  1178,  1186,  1194,  1197,  1198,
+        1247,  1275,  1290,  1300,  1309,  1316,  1395,  1433,  1503,
+        1520,  1555,  1581,  1605,  1609,  1616,  1651,  1697,  1717,
+        1750,  1766,  1795,  1818,  1823,  1866,  1885,  1903,  1931,
+        1933,  1939,  1982,  1987,  2000,  2019,  2025,  2090,  2093,
+        2103,  2117,  2122,  2157,  2175,  2199,  2221,  2262,  2290,
+        2303,  2331,  2435,  2454,  2491,  2512,  2520,  2570,  2592,
+        2640,  2651,  2664,  2666,  2668,  2673,  2681,  2689,  2716,
+        2751,  2761,  2764,  2797,  2799,  2825,  2836,  2873,  2885,
+        2900,  2920,  2933,  2965,  2971,  2977,  2985,  3005,  3055,
+        3067,  3071,  3102,  3111,  3117,  3120,  3140,  3143,  3151,
+        3152,  3156,  3218,  3245,  3247,  3262,  3284,  3296,  3297,
+        3308,  3309,  3357,  3390,  3393,  3423,  3424,  3429,  3458,
+        3470,  3507,  3521,  3558,  3597,  3598,  3600,  3606,  3623,
+        3692,  3721,  3750,  3780,  3813,  3833,  3949,  3973,  3982,
+        4002,  4026,  4029,  4041,  4061,  4066,  4076,  4087,  4122,
+        4147,  4157,  4163,  4175,  4176,  4238,  4241,  4246,  4315,
+        4335,  4368,  4398,  4399,  4402,  4417,  4438,  4457,  4464,
+        4499,  4517,  4529,  4534,  4538,  4541,  4593,  4685,  4689,
+        4709,  4757,  4791,  4813,  4814,  4817,  4821,  4824,  4839,
+        4844,  4879,  4880,  4918,  4928,  4950,  4973,  5053,  5068,
+        5078,  5086,  5162,  5163,  5168,  5174,  5215,  5223,  5235,
+        5251,  5290,  5319,  5381,  5383,  5394,  5417,  5434,  5455,
+        5494,  5498,  5545,  5587,  5589,  5608,  5627,  5683,  5703,
+        5709,  5741,  5790,  5848,  5865,  5871,  5876,  5941,  5946,
+        5953,  5961,  5970,  5974,  5977,  5986,  6003,  6035,  6055,
+        6062,  6069,  6080,  6097,  6108,  6117,  6128,  6147,  6200,
+        6226,  6244,  6252,  6260,  6279,  6282,  6283,  6294,  6373,
+        6398,  6413,  6421,  6437,  6467,  6500,  6514,  6525,  6567,
+        6575,  6593,  6605,  6611,  6670,  6693,  6795,  6800,  6846,
+        6847,  6872,  6879,  6889,  6934,  6949,  6979,  6989,  7000,
+        7004,  7038,  7044,  7064,  7128,  7132,  7152,  7160,  7179,
+        7182,  7187,  7222,  7256,  7261,  7271,  7272,  7274,  7283,
+        7294,  7305,  7311,  7344,  7366,  7380,  7381,  7403,  7422,
+        7445,  7480,  7502,  7520,  7522,  7550,  7559,  7575,  7613,
+        7624,  7642,  7651,  7693,  7703,  7752,  7755,  7761,  7764,
+        7773,  7808,  7941,  7996,  8003,  8014,  8115,  8116,  8118,
+        8147,  8176,  8197,  8206,  8207,  8217,  8238,  8267,  8307,
+        8310,  8381,  8385,  8404,  8455,  8467,  8494,  8526,  8559,
+        8561,  8566,  8619,  8658,  8659,  8676,  8683,  8689,  8774,
+        8780,  8798,  8799,  8820,  8847,  8878,  8898,  8908,  8954,
+        8958,  9005,  9012,  9056,  9072,  9081,  9102,  9141,  9159,
+        9252,  9265,  9270,  9293,  9304,  9391,  9428,  9436,  9451,
+        9463,  9464,  9466,  9540,  9588,  9603,  9643,  9653,  9665,
+        9678,  9725,  9729,  9739,  9769,  9777,  9781,  9797,  9837,
+        9848,  9904,  9939,  9949,  9981, 10021, 10115, 10178, 10199,
+       10225, 10233, 10285, 10288, 10296, 10299, 10303, 10405, 10406,
+       10449, 10489, 10504, 10514, 10526, 10538, 10548, 10614, 10631,
+       10640, 10715, 10765, 10779, 10780, 10792, 10800, 10823, 10827,
+       10880, 10959, 10996, 11001, 11012, 11087, 11089, 11093, 11115,
+       11134, 11142, 11165, 11167, 11182, 11188, 11232, 11249, 11250,
+       11313, 11340, 11365, 11374, 11396, 11403, 11410, 11454, 11460,
+       11463, 11492, 11603, 11779, 11780, 11793, 11803, 11849, 11928,
+       11943, 11969, 11983, 11993, 12029, 12051, 12054, 12076, 12159,
+       12177, 12202, 12225, 12232, 12316, 12356, 12371, 12465, 12471,
+       12500, 12501, 12560, 12563, 12566, 12585, 12588, 12623, 12630,
+       12656, 12719, 12721, 12747, 12750, 12762, 12815, 12820, 12878,
+       12903, 12916, 12925, 12926]),)
+(12936, 12936)
+(12365, 12936)
+(12365, 12365)
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+tensor([[ 0.0015, -0.0004,  0.0001,  ..., -0.0315, -0.0052, -0.0052],
+        [ 0.0247,  0.0360,  0.0044,  ...,  0.0146, -0.0137, -0.0082],
+        [ 0.0004, -0.0208, -0.0077,  ..., -0.0246, -0.0381, -0.0340],
+        ...,
+        [ 0.0357, -0.0147,  0.0156,  ..., -0.0172,  0.0027, -0.0179],
+        [-0.0388,  0.0082, -0.0002,  ..., -0.0157, -0.0396,  0.0021],
+        [-0.0164,  0.0038, -0.0300,  ..., -0.0139, -0.0400, -0.0490]]) [530 369 368 ... 485 591  73] [] 767 Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True) [0.85923415 0.51811975 0.6811446  ... 0.7103296  0.7018271  0.8782786 ]
+reCluster!use silhouette score and tao=0.0
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.2649672031402588s
+The HC Re-cluster result: num cluster = 768(model) // 772(model_ema) 	 num outliers = 571(model) // 546(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.4059295654296875s
+The UCIS result: num clean cluster = 764(model) 	 num outliers = 683(model)
+mdoel:new class are [765], length of new dataset is 12253
+Epoch: [0][0/300]	Time 3.439 (3.439)	Data 0.094 (0.094)	Loss_ce_clean 0.126 	Loss_ct_clean 0.166 	Prec 97.66%
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+==> Create pseudo labels for unlabeled target domain with model
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.821 (0.900)	Data 0.000 (0.004)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 240.2287151813507
+==> Create pseudo labels for unlabeled target domain with model_ema
+Extract Features: [100/102]	Time 0.752 (0.755)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 126.71921300888062
+The orignal cluster result: num cluster = 773(model) // 768(model_ema) 	 num outliers = 568(model) // 567(model_ema)
+Applying hierarchical clustering
+reCluster!use silhouette score and tao=0.0
+[533 412 369 ... 488 596  75]
+each uncer num= [] average= nan uncer_average= nan
+tensor([[ 0.0015, -0.0004,  0.0001,  ..., -0.0315, -0.0052, -0.0052],
+        [ 0.0247,  0.0360,  0.0044,  ...,  0.0146, -0.0137, -0.0082],
+        [ 0.0004, -0.0208, -0.0077,  ..., -0.0246, -0.0381, -0.0340],
+        ...,
+        [ 0.0357, -0.0147,  0.0156,  ..., -0.0172,  0.0027, -0.0179],
+        [-0.0388,  0.0082, -0.0002,  ..., -0.0157, -0.0396,  0.0021],
+        [-0.0164,  0.0038, -0.0300,  ..., -0.0139, -0.0400, -0.0490]]) [533 412 369 ... 488 596  75] [] 772 Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True) [0.85923076 0.5181161  0.6811483  ... 0.7103306  0.7018245  0.8782753 ]
+reCluster!use silhouette score and tao=0.0
+[530 372 371 ... 486 591  76]
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=1.2452239990234375s
+The HC Re-cluster result: num cluster = 773(model) // 768(model_ema) 	 num outliers = 568(model) // 567(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.42290592193603516s
+The UCIS result: num clean cluster = 772(model) 	 num outliers = 631(model)
+mdoel:new class are [773], length of new dataset is 12305
+Epoch: [0][0/300]	Time 3.476 (3.476)	Data 0.102 (0.102)	Loss_ce_clean 0.157 	Loss_ct_clean 0.183 	Prec 96.88%
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.822 (0.898)	Data 0.000 (0.004)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 232.89337038993835
+==> Create pseudo labels for unlabeled target domain with model_ema
+Extract Features: [100/102]	Time 0.751 (0.753)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.777 (0.869)	Data 0.000 (0.004)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 175.10170364379883
+==> Create pseudo labels for unlabeled target domain with model_ema
+Extract Features: [100/102]	Time 0.753 (0.748)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.747 (0.873)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 43.061593532562256
+model: DataParallel(
+  (module): ResNet(
+    (base): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    )
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (gap): GeneralizedMeanPoolingP(Parameter containing:
+    tensor([4.4191], device='cuda:0', requires_grad=True), output_size=1)
+    (feat_bn): BatchNorm1d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (classifier0_32621): Linear(in_features=2048, out_features=32621, bias=False)
+  )
+)
+tar_cluster_loader: <torch.utils.data.dataloader.DataLoader object at 0x7a3dab567830>
+args: Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+cluster: HDBSCAN(metric='precomputed')
+target_features:  tensor([[ 0.0015, -0.0004,  0.0001,  ..., -0.0315, -0.0052, -0.0052],
+        [ 0.0247,  0.0360,  0.0044,  ...,  0.0146, -0.0137, -0.0082],
+        [ 0.0004, -0.0208, -0.0078,  ..., -0.0246, -0.0381, -0.0340],
+        ...,
+        [ 0.0357, -0.0147,  0.0156,  ..., -0.0172,  0.0027, -0.0179],
+        [-0.0388,  0.0082, -0.0002,  ..., -0.0157, -0.0396,  0.0021],
+        [-0.0164,  0.0038, -0.0300,  ..., -0.0139, -0.0400, -0.0490]])
+rerank_dist:  [[0. 1. 1. ... 1. 1. 1.]
+ [1. 0. 1. ... 1. 1. 1.]
+ [1. 1. 0. ... 1. 1. 1.]
+ ...
+ [1. 1. 1. ... 0. 1. 1.]
+ [1. 1. 1. ... 1. 0. 1.]
+ [1. 1. 1. ... 1. 1. 0.]]
+pseudo_labels:  [531 382 371 ... 486 592  75]
+pl:  [531 382 371 ... 486 592  75]
+num_outliers:  543
+num_cluster_label:  770
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.746 (0.747)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 42.44975399971008
+model: DataParallel(
+  (module): ResNet(
+    (base): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    )
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (gap): GeneralizedMeanPoolingP(Parameter containing:
+    tensor([4.4191], device='cuda:0', requires_grad=True), output_size=1)
+    (feat_bn): BatchNorm1d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (classifier0_32621): Linear(in_features=2048, out_features=32621, bias=False)
+  )
+)
+tar_cluster_loader: <torch.utils.data.dataloader.DataLoader object at 0x7a3dab567830>
+args: Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+cluster: HDBSCAN(metric='precomputed')
+target_features:  tensor([[ 0.0015, -0.0004,  0.0001,  ..., -0.0315, -0.0052, -0.0052],
+        [ 0.0247,  0.0360,  0.0044,  ...,  0.0146, -0.0137, -0.0081],
+        [ 0.0004, -0.0208, -0.0077,  ..., -0.0246, -0.0381, -0.0340],
+        ...,
+        [ 0.0357, -0.0147,  0.0156,  ..., -0.0172,  0.0027, -0.0179],
+        [-0.0388,  0.0082, -0.0002,  ..., -0.0157, -0.0396,  0.0021],
+        [-0.0164,  0.0038, -0.0300,  ..., -0.0139, -0.0400, -0.0490]])
+rerank_dist:  [[0.0000000e+00 1.0000000e+00 1.0000000e+00 ... 1.0000000e+00
+  1.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 2.3841858e-07 1.0000000e+00 ... 1.0000000e+00
+  1.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 1.0000000e+00 0.0000000e+00 ... 1.0000000e+00
+  1.0000000e+00 1.0000000e+00]
+ ...
+ [1.0000000e+00 1.0000000e+00 1.0000000e+00 ... 5.9604645e-08
+  1.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 1.0000000e+00 1.0000000e+00 ... 1.0000000e+00
+  2.3841858e-07 1.0000000e+00]
+ [1.0000000e+00 1.0000000e+00 1.0000000e+00 ... 1.0000000e+00
+  1.0000000e+00 5.9604645e-08]]
+pseudo_labels:  [532 381 372 ... 486 593  78]
+pl:  [532 381 372 ... 486 593  78]
+num_outliers:  554
+num_cluster_label:  769
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.754 (0.747)	Data 0.000 (0.004)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 42.33467507362366
+model: DataParallel(
+  (module): ResNet(
+    (base): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    )
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (gap): GeneralizedMeanPoolingP(Parameter containing:
+    tensor([4.4191], device='cuda:0', requires_grad=True), output_size=1)
+    (feat_bn): BatchNorm1d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (classifier0_32621): Linear(in_features=2048, out_features=32621, bias=False)
+  )
+)
+tar_cluster_loader: <torch.utils.data.dataloader.DataLoader object at 0x7a3dab567830>
+args: Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+cluster: HDBSCAN(metric='precomputed')
+target_features:  tensor([[ 0.0015, -0.0005,  0.0001,  ..., -0.0315, -0.0052, -0.0052],
+        [ 0.0247,  0.0360,  0.0044,  ...,  0.0146, -0.0137, -0.0082],
+        [ 0.0004, -0.0208, -0.0078,  ..., -0.0246, -0.0381, -0.0340],
+        ...,
+        [ 0.0357, -0.0147,  0.0156,  ..., -0.0172,  0.0027, -0.0179],
+        [-0.0388,  0.0082, -0.0002,  ..., -0.0157, -0.0396,  0.0021],
+        [-0.0164,  0.0038, -0.0300,  ..., -0.0139, -0.0400, -0.0490]])
+rerank_dist:  [[0. 1. 1. ... 1. 1. 1.]
+ [1. 0. 1. ... 1. 1. 1.]
+ [1. 1. 0. ... 1. 1. 1.]
+ ...
+ [1. 1. 1. ... 0. 1. 1.]
+ [1. 1. 1. ... 1. 0. 1.]
+ [1. 1. 1. ... 1. 1. 0.]]
+pseudo_labels:  [532 385 370 ... 487 595  77]
+pl:  [532 385 370 ... 487 595  77]
+num_outliers:  568
+num_cluster_label:  770
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.764 (0.745)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 42.22784376144409
+model: DataParallel(
+  (module): ResNet(
+    (base): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    )
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (gap): GeneralizedMeanPoolingP(Parameter containing:
+    tensor([4.4191], device='cuda:0', requires_grad=True), output_size=1)
+    (feat_bn): BatchNorm1d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (classifier0_32621): Linear(in_features=2048, out_features=32621, bias=False)
+  )
+)
+tar_cluster_loader: <torch.utils.data.dataloader.DataLoader object at 0x7a3dab567830>
+args: Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+cluster: HDBSCAN(metric='precomputed')
+target_features:  tensor([[ 0.0015, -0.0005,  0.0001,  ..., -0.0315, -0.0052, -0.0052],
+        [ 0.0247,  0.0360,  0.0044,  ...,  0.0146, -0.0137, -0.0082],
+        [ 0.0004, -0.0208, -0.0078,  ..., -0.0246, -0.0381, -0.0340],
+        ...,
+        [ 0.0357, -0.0147,  0.0156,  ..., -0.0172,  0.0027, -0.0179],
+        [-0.0388,  0.0082, -0.0002,  ..., -0.0157, -0.0396,  0.0021],
+        [-0.0164,  0.0038, -0.0300,  ..., -0.0139, -0.0400, -0.0490]])
+rerank_dist:  [[4.172325e-07 1.000000e+00 1.000000e+00 ... 1.000000e+00 1.000000e+00
+  1.000000e+00]
+ [1.000000e+00 0.000000e+00 1.000000e+00 ... 1.000000e+00 1.000000e+00
+  1.000000e+00]
+ [1.000000e+00 1.000000e+00 0.000000e+00 ... 1.000000e+00 1.000000e+00
+  1.000000e+00]
+ ...
+ [1.000000e+00 1.000000e+00 1.000000e+00 ... 0.000000e+00 1.000000e+00
+  1.000000e+00]
+ [1.000000e+00 1.000000e+00 1.000000e+00 ... 1.000000e+00 0.000000e+00
+  1.000000e+00]
+ [1.000000e+00 1.000000e+00 1.000000e+00 ... 1.000000e+00 1.000000e+00
+  0.000000e+00]]
+pseudo_labels:  [531 375 373 ... 483 593  78]
+pl:  [531 375 373 ... 483 593  78]
+num_outliers:  531
+num_cluster_label:  767
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.753 (0.744)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 42.37683391571045
+model: DataParallel(
+  (module): ResNet(
+    (base): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    )
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (gap): GeneralizedMeanPoolingP(Parameter containing:
+    tensor([4.4191], device='cuda:0', requires_grad=True), output_size=1)
+    (feat_bn): BatchNorm1d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (classifier0_32621): Linear(in_features=2048, out_features=32621, bias=False)
+  )
+)
+tar_cluster_loader: <torch.utils.data.dataloader.DataLoader object at 0x7a3dab567830>
+args: Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+cluster: HDBSCAN(metric='precomputed')
+target_features:  tensor([[ 0.0015, -0.0005,  0.0001,  ..., -0.0315, -0.0052, -0.0052],
+        [ 0.0247,  0.0360,  0.0044,  ...,  0.0146, -0.0137, -0.0082],
+        [ 0.0004, -0.0208, -0.0078,  ..., -0.0246, -0.0381, -0.0340],
+        ...,
+        [ 0.0357, -0.0147,  0.0156,  ..., -0.0172,  0.0027, -0.0179],
+        [-0.0388,  0.0082, -0.0002,  ..., -0.0157, -0.0396,  0.0021],
+        [-0.0164,  0.0038, -0.0300,  ..., -0.0139, -0.0400, -0.0490]])
+rerank_dist:  [[0. 1. 1. ... 1. 1. 1.]
+ [1. 0. 1. ... 1. 1. 1.]
+ [1. 1. 0. ... 1. 1. 1.]
+ ...
+ [1. 1. 1. ... 0. 1. 1.]
+ [1. 1. 1. ... 1. 0. 1.]
+ [1. 1. 1. ... 1. 1. 0.]]
+pseudo_labels:  [532 377 369 ... 484 596  77]
+pl:  [532 377 369 ... 484 596  77]
+num_outliers:  571
+num_cluster_label:  771
+==> Create pseudo labels for unlabeled target domain with model
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.723 (0.776)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 43.13901901245117
+model: DataParallel(
+  (module): ResNet(
+    (base): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    )
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (gap): GeneralizedMeanPoolingP(Parameter containing:
+    tensor([4.4191], device='cuda:0', requires_grad=True), output_size=1)
+    (feat_bn): BatchNorm1d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (classifier0_32621): Linear(in_features=2048, out_features=32621, bias=False)
+  )
+)
+tar_cluster_loader: <torch.utils.data.dataloader.DataLoader object at 0x75fdd80a8200>
+args: Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+cluster: HDBSCAN(metric='precomputed')
+target_features:  tensor([[ 0.0015, -0.0005,  0.0001,  ..., -0.0315, -0.0052, -0.0052],
+        [ 0.0247,  0.0360,  0.0044,  ...,  0.0146, -0.0137, -0.0082],
+        [ 0.0004, -0.0208, -0.0078,  ..., -0.0246, -0.0381, -0.0340],
+        ...,
+        [ 0.0357, -0.0147,  0.0156,  ..., -0.0172,  0.0027, -0.0179],
+        [-0.0388,  0.0082, -0.0002,  ..., -0.0157, -0.0396,  0.0021],
+        [-0.0164,  0.0038, -0.0300,  ..., -0.0139, -0.0400, -0.0490]])
+rerank_dist:  [[0.0000000e+00 1.0000000e+00 1.0000000e+00 ... 1.0000000e+00
+  1.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 5.9604645e-08 1.0000000e+00 ... 1.0000000e+00
+  1.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 1.0000000e+00 2.3841858e-07 ... 1.0000000e+00
+  1.0000000e+00 1.0000000e+00]
+ ...
+ [1.0000000e+00 1.0000000e+00 1.0000000e+00 ... 0.0000000e+00
+  1.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 1.0000000e+00 1.0000000e+00 ... 1.0000000e+00
+  0.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 1.0000000e+00 1.0000000e+00 ... 1.0000000e+00
+  1.0000000e+00 0.0000000e+00]]
+pseudo_labels:  [532 406 374 ... 485 594  77]
+pl:  [532 406 374 ... 485 594  77]
+num_outliers:  576
+num_cluster_label:  771
+==> Create pseudo labels for unlabeled target domain with model
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+==> Create pseudo labels for unlabeled target domain with model
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.736 (0.752)	Data 0.000 (0.004)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 42.66567516326904
+model: DataParallel(
+  (module): ResNet(
+    (base): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    )
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (gap): GeneralizedMeanPoolingP(Parameter containing:
+    tensor([4.4191], device='cuda:0', requires_grad=True), output_size=1)
+    (feat_bn): BatchNorm1d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (classifier0_32621): Linear(in_features=2048, out_features=32621, bias=False)
+  )
+)
+tar_cluster_loader: <torch.utils.data.dataloader.DataLoader object at 0x75664289c260>
+args: Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+cluster: HDBSCAN(metric='precomputed')
+target_features:  tensor([[ 0.0015, -0.0004,  0.0001,  ..., -0.0315, -0.0052, -0.0052],
+        [ 0.0247,  0.0360,  0.0044,  ...,  0.0146, -0.0137, -0.0082],
+        [ 0.0004, -0.0208, -0.0077,  ..., -0.0246, -0.0381, -0.0340],
+        ...,
+        [ 0.0357, -0.0147,  0.0156,  ..., -0.0172,  0.0027, -0.0179],
+        [-0.0388,  0.0082, -0.0002,  ..., -0.0157, -0.0396,  0.0021],
+        [-0.0164,  0.0038, -0.0300,  ..., -0.0139, -0.0400, -0.0490]])
+rerank_dist:  [[0.0000000e+00 1.0000000e+00 1.0000000e+00 ... 1.0000000e+00
+  1.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 5.9604645e-08 1.0000000e+00 ... 1.0000000e+00
+  1.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 1.0000000e+00 0.0000000e+00 ... 1.0000000e+00
+  1.0000000e+00 1.0000000e+00]
+ ...
+ [1.0000000e+00 1.0000000e+00 1.0000000e+00 ... 2.3841858e-07
+  1.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 1.0000000e+00 1.0000000e+00 ... 1.0000000e+00
+  0.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 1.0000000e+00 1.0000000e+00 ... 1.0000000e+00
+  1.0000000e+00 0.0000000e+00]]
+pseudo_labels:  [530 402 368 ... 484 590  75]
+pl:  [530 402 368 ... 484 590  75]
+num_outliers:  562
+num_cluster_label:  767
+==> Create pseudo labels for unlabeled target domain with model
+Extract Features: [100/102]	Time 0.756 (0.747)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+Extract Features: [100/151]	Time 0.738 (0.749)	Data 0.000 (0.004)	
+Re-ranking not applied.
+Mean AP: 83.6%
+CMC Scores:
+  top-1          93.6%
+  top-5          97.7%
+  top-10         98.5%
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+Training begining~~~~~~!!!!!!!!!
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+Extracting features...
+Extract Features: [100/151]	Time 0.747 (0.751)	Data 0.000 (0.004)	
+Re-ranking not applied.
+Mean AP: 83.6%
+CMC Scores:
+  top-1          93.6%
+  top-5          97.7%
+  top-10         98.5%
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+Extracting features...
+Extract Features: [100/151]	Time 0.749 (0.747)	Data 0.000 (0.005)	
+==========
+Args:Namespace(dataset_source='duke', dataset_target='market1501', batch_size=128, workers=6, choice_c=0, num_clusters=32621, ncs='60', k1=30, k2=6, height=256, width=128, num_instances=4, arch='resnet50', features=0, dropout=0, lr=3.5e-05, momentum=0.9, alpha=0.999, moving_avg_momentum=0, weight_decay=0.0005, soft_ce_weight=0.5, soft_tri_weight=0.8, epochs=50, iters=200, lambda_value=0, rr_gpu=False, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', seed=1, print_freq=100, eval_step=5, n_jobs=8, data_dir='/hgst/longdn/UCF-main/data', logs_dir='/hgst/longdn/UCF-main/logs/dbscan/duke2market/', log_name='', HC=True, UCIS=True)
+==========
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Clustering criterion: eps: 0.600
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+Extract Features: [100/151]	Time 0.733 (0.746)	Data 0.000 (0.003)	
+Mean AP: 83.6%
+CMC Scores:
+  top-1          93.6%
+  top-5          97.7%
+  top-10         98.5%

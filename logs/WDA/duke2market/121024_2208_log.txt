@@ -1,0 +1,76 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/121024_2208_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+torch.Size([3368, 2048])
+3368 19732
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+torch.Size([3368, 2048])
+3368 19732
+[76.23977901 48.02689292]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.48039722442627s
+urf
+Mean AP: 78.2%
+CMC Scores:
+  top-1          78.6%
+  top-5          96.9%
+  top-10         98.2%
+0.7823773968550932
+Cost time=28.933156967163086s
+Euclidean distance +urf+cce
+tensor([[100.3418, 122.1696,  95.8841,  ..., 106.2753, 117.8137,  74.3978],
+        [ 60.8495,  86.3903,  78.0518,  ..., 118.3858,  72.1159,  83.7298],
+        [ 93.7440, 126.9370,  75.2628,  ...,  84.9937, 106.3898, 106.2808],
+        ...,
+        [108.8320,  89.7063,  85.9058,  ...,  76.3864,  82.2889,  75.5867],
+        [ 74.3736,  49.3046,  74.4122,  ..., 104.6427,  81.8474, 114.2046],
+        [ 80.0870,  35.2215,  75.2431,  ...,  26.2908,  67.3011,  96.0886]])
+Mean AP: 83.0%
+CMC Scores:
+  top-1          90.1%
+  top-5          97.8%
+  top-10         98.4%
+0.8301419847937368
+Cost time=28.231266975402832s
+Euclidean distance + urf
+tensor([[413.1140, 428.0954, 408.6732,  ..., 419.0135, 423.7201, 387.2408],
+        [373.7670, 399.2167, 384.0473,  ..., 431.0871, 384.9563, 396.5450],
+        [406.5169, 439.6182, 388.1142,  ..., 397.7917, 419.1542, 419.0320],
+        ...,
+        [421.5824, 402.5123, 398.7263,  ..., 389.2117, 395.0989, 388.4008],
+        [380.4054, 362.2524, 387.2648,  ..., 417.3798, 394.6716, 426.9357],
+        [392.9015, 348.2002, 388.0990,  ..., 332.4408, 380.1401, 408.8394]])
+Mean AP: 82.0%
+CMC Scores:
+  top-1          88.2%
+  top-5          97.5%
+  top-10         98.3%
+0.8198882592111676
+Cost time=28.439194440841675s
+k:  2

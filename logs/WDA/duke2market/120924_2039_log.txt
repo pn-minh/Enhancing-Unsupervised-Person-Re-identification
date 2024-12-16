@@ -1,0 +1,172 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/120924_2039_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=10, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Cosin+urf+cce
+Mean AP: 80.9%
+CMC Scores:
+  top-1          87.4%
+  top-5          97.2%
+  top-10         98.2%
+0.8093181905896495
+Cost time=30.92604088783264s
+k:  2
+Cosin+urf+cce
+Mean AP: 81.3%
+CMC Scores:
+  top-1          86.8%
+  top-5          97.1%
+  top-10         98.0%
+0.8126572891850351
+Cost time=31.987969636917114s
+k:  3
+Cosin+urf+cce
+Mean AP: 81.0%
+CMC Scores:
+  top-1          85.5%
+  top-5          97.0%
+  top-10         98.1%
+0.8097350120337173
+Cost time=32.44454908370972s
+k:  4
+Cosin+urf+cce
+Mean AP: 80.8%
+CMC Scores:
+  top-1          84.7%
+  top-5          96.9%
+  top-10         98.0%
+0.8084249531484263
+Cost time=31.997523069381714s
+k:  5
+Cosin+urf+cce
+Mean AP: 81.6%
+CMC Scores:
+  top-1          86.4%
+  top-5          96.9%
+  top-10         98.0%
+0.8156888786586797
+Cost time=31.042703866958618s
+k:  6
+Cosin+urf+cce
+Mean AP: 82.1%
+CMC Scores:
+  top-1          87.7%
+  top-5          97.1%
+  top-10         98.2%
+0.8206216994259211
+Cost time=31.615065813064575s
+k:  7
+Cosin+urf+cce
+Mean AP: 82.0%
+CMC Scores:
+  top-1          87.6%
+  top-5          97.0%
+  top-10         98.1%
+0.8195199794960278
+Cost time=30.398014307022095s
+k:  8
+Cosin+urf+cce
+Mean AP: 82.1%
+CMC Scores:
+  top-1          87.3%
+  top-5          96.9%
+  top-10         98.1%
+0.8213557207920297
+Cost time=30.57690167427063s
+k:  9
+Cosin+urf+cce
+Mean AP: 82.5%
+CMC Scores:
+  top-1          88.3%
+  top-5          97.0%
+  top-10         98.1%
+0.8247549013484938
+Cost time=30.83636736869812s
+k:  10
+Cosin+urf+cce
+Mean AP: 81.9%
+CMC Scores:
+  top-1          87.0%
+  top-5          97.0%
+  top-10         98.0%
+0.8191966370094412
+Cost time=32.74160814285278s
+k:  11
+Cosin+urf+cce
+Mean AP: 82.0%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.2%
+  top-10         98.1%
+0.8204449260373224
+Cost time=32.40010952949524s
+k:  12
+Cosin+urf+cce
+Mean AP: 82.6%
+CMC Scores:
+  top-1          88.3%
+  top-5          97.3%
+  top-10         98.1%
+0.8255333761603013
+Cost time=31.32665705680847s
+k:  13
+Cosin+urf+cce
+Mean AP: 82.6%
+CMC Scores:
+  top-1          88.8%
+  top-5          97.2%
+  top-10         98.2%
+0.8262796912060286
+Cost time=31.654524087905884s
+k:  14
+Cosin+urf+cce
+Mean AP: 81.9%
+CMC Scores:
+  top-1          87.2%
+  top-5          97.2%
+  top-10         98.1%
+0.8193939961745168
+Cost time=31.850554704666138s
+k:  15
+Cosin+urf+cce
+Mean AP: 82.0%
+CMC Scores:
+  top-1          87.5%
+  top-5          97.1%
+  top-10         98.1%
+0.8203493499574961
+Cost time=32.43151783943176s
+k:  16
+Cosin+urf+cce
+Mean AP: 82.1%
+CMC Scores:
+  top-1          87.8%
+  top-5          97.1%
+  top-10         98.0%
+0.8210727646778245
+Cost time=33.260236978530884s
+k:  17
+Cosin+urf+cce
+Mean AP: 82.0%
+CMC Scores:
+  top-1          88.0%
+  top-5          97.1%
+  top-10         98.1%
+0.8204706726918826
+Cost time=29.330703020095825s
+k:  18
+Cosin+urf+cce
+Mean AP: 81.4%
+CMC Scores:
+  top-1          86.8%
+  top-5          97.0%
+  top-10         98.0%
+0.8137580007222556
+Cost time=28.315248012542725s
+k:  19

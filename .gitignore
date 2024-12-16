@@ -5,8 +5,8 @@
 /logs/dbscan/market2msmt/*.tar
 /logs/dbscan/duke2msmt/*.tar
 /logs/dbscan/msmt2duke/*.tar
-/log/dbscan/marke2duke/*.tar
-/log/dbscan/duke2market/*.tar
+/logs/dbscan/market2duke/*.tar
+/logs/dbscan/duke2market/*.tar
 
 /logs/pretrained/msmt2market/*.tar
 /logs/pretrained/market2msmt/*.tar

@@ -1,0 +1,135 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/120924_1930_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=10, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.142 (0.170)	Data 0.000 (0.007)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+10
+Jaccard distance computing time cost: 18.526044845581055
+Extract Features: [100/102]	Time 0.142 (0.146)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+10
+Jaccard distance computing time cost: 18.3555588722229
+1
+reCluster!use silhouette score and tao=0.0
+each uncer num= [5946, 4275, 1207, 212, 250, 347, 72, 19, 12, 15] average= 1235.5 uncer_average= -0.0053638974
+torch.Size([5946, 5946])
+10
+torch.Size([4275, 4275])
+10
+torch.Size([1207, 1207])
+10
+torch.Size([212, 212])
+10
+torch.Size([250, 250])
+10
+torch.Size([347, 347])
+10
+torch.Size([72, 72])
+10
+torch.Size([19, 19])
+10
+torch.Size([12, 12])
+10
+torch.Size([15, 15])
+10
+HC finish! Cost time=18.32950735092163s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [5946, 4275, 1207, 212, 250, 347, 72, 19, 12, 15] average= 1235.5 uncer_average= -0.0053638974
+torch.Size([5946, 5946])
+10
+torch.Size([4275, 4275])
+10
+torch.Size([1207, 1207])
+10
+torch.Size([212, 212])
+10
+torch.Size([250, 250])
+10
+torch.Size([347, 347])
+10
+torch.Size([72, 72])
+10
+torch.Size([19, 19])
+10
+torch.Size([12, 12])
+10
+torch.Size([15, 15])
+10
+HC finish! Cost time=18.323173761367798s
+The HC Re-cluster result: num cluster = 594(model) // 594(model_ema) 	 num outliers = 2866(model) // 2866(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.4262845516204834s
+The UCIS result: num clean cluster = 594(model) 	 num outliers = 2866(model)
+mdoel:new class are [595], length of new dataset is 10070
+Euclidean distance: 1.4421831369400024
+Weights: [56.96146292 29.50591918]
+Bias: -55.04035126199662
+Euclidean distance: 1.4132680892944336
+Weights: [41.04960651 42.58354536]
+Bias: -50.10798042847591
+Euclidean distance: 1.3697550296783447
+Weights: [26.60461715 54.66067586]
+Bias: -45.97443978418528
+Euclidean distance: 1.267769455909729
+Weights: [27.74496347 54.002097  ]
+Bias: -46.08100473114135
+Euclidean distance: 1.4815456867218018
+Weights: [27.72805032 54.34054261]
+Bias: -46.02469193117409
+Euclidean distance: 0.7071546316146851
+Weights: [34.77759561 47.6057963 ]
+Bias: -46.59544444725023
+Euclidean distance: 1.4236178398132324
+Weights: [31.12357093 51.60263597]
+Bias: -46.4549961515162
+Euclidean distance: 1.3716799020767212
+Weights: [34.97582634 47.94124218]
+Bias: -47.201585888021896
+Euclidean distance: 1.4126852750778198
+Weights: [34.64602041 48.71850378]
+Bias: -47.23309370824299
+Euclidean distance: 1.5266419649124146
+Weights: [41.1848953 42.9294215]
+Bias: -48.886129119159506
+Euclidean distance: 1.3945214748382568
+Weights: [46.1294703  38.80020038]
+Bias: -50.30002049612892
+Euclidean distance: 1.3329839706420898
+Weights: [40.89203753 44.04233295]
+Bias: -49.158149094253844
+Euclidean distance: 1.4919226169586182
+Weights: [39.79843314 44.44201985]
+Bias: -48.433545084859546
+Euclidean distance: 1.3865939378738403
+Weights: [42.35758524 43.02901052]
+Bias: -49.83381778565199
+Euclidean distance: 1.4724078178405762
+Weights: [40.09735266 44.773876  ]
+Bias: -49.07004157041635
+Euclidean distance: 1.4262968301773071
+Weights: [38.49314505 46.89133622]
+Bias: -49.23041158905819
+Euclidean distance: 1.4805456399917603
+Weights: [42.101511   43.87126751]
+Bias: -50.005480924172076
+Euclidean distance: 1.4992833137512207
+Weights: [46.28868578 40.59016577]
+Bias: -51.82274077090004

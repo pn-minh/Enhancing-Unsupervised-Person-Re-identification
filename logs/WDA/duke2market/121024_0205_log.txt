@@ -1,0 +1,21 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/121024_0205_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+Euclidean distance +urf+cce
+Mean AP: 0.0%
+CMC Scores:
+  top-1           0.0%
+  top-5           0.0%
+  top-10          0.0%
+0.00040267861060979456
+Cost time=28.46077585220337s
+Euclidean distance + urf
+Mean AP: 79.8%
+CMC Scores:
+  top-1          85.6%
+  top-5          97.0%
+  top-10         98.0%
+0.7979073848284054
+Cost time=28.105445861816406s
+k:  2

@@ -1,0 +1,721 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/121024_2247_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Weights: [63.97827846 60.35426641]
+Bias: -150.5551351659939
+Weights: [51.91004648 72.78633853]
+Bias: -147.14551770865455
+Weights: [45.90553645 78.86339284]
+Bias: -144.7515535435364
+Weights: [41.3883417  83.59280199]
+Bias: -142.94951737906203
+Weights: [40.93921818 84.3413755 ]
+Bias: -142.31674164810607
+Weights: [41.27674281 84.60098957]
+Bias: -141.91244661602082
+Weights: [44.23794401 82.31896241]
+Bias: -142.3700268688304
+Weights: [48.52893611 78.61074083]
+Bias: -143.33277731218018
+Weights: [48.73193746 78.74218759]
+Bias: -143.19948972015064
+Weights: [49.5725219  78.68902978]
+Bias: -143.32023054270974
+Weights: [53.67776917 74.97352865]
+Bias: -144.501468768325
+Weights: [51.61260999 77.44253285]
+Bias: -144.1527022700352
+Weights: [59.70689992 69.78587615]
+Bias: -146.02910924051758
+Weights: [60.497274 69.614363]
+Bias: -146.43433415354338
+Weights: [59.6004304  70.90566464]
+Bias: -146.55133137326442
+Weights: [60.32188142 70.75202051]
+Bias: -146.97116154866603
+Weights: [62.58813831 69.0193746 ]
+Bias: -147.76427737465593
+Weights: [65.08930165 66.52691299]
+Bias: -148.19198936401688
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[63.97827846 60.35426641]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.33464026451111s
+urf
+Mean AP: 78.2%
+CMC Scores:
+  top-1          78.6%
+  top-5          96.9%
+  top-10         98.2%
+0.7823773968550932
+Cost time=29.226057291030884s
+Euclidean distance +urf+cce
+Mean AP: 83.1%
+CMC Scores:
+  top-1          89.4%
+  top-5          97.8%
+  top-10         98.4%
+0.8309978374753623
+Cost time=28.365179300308228s
+Euclidean distance + urf
+Mean AP: 82.1%
+CMC Scores:
+  top-1          86.8%
+  top-5          97.5%
+  top-10         98.2%
+0.8207069499892365
+Cost time=28.464328050613403s
+k:  2
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[51.91004648 72.78633853]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.304414749145508s
+urf
+Mean AP: 78.7%
+CMC Scores:
+  top-1          79.2%
+  top-5          96.8%
+  top-10         98.1%
+0.787443944148754
+Cost time=28.671271800994873s
+Euclidean distance +urf+cce
+Mean AP: 83.4%
+CMC Scores:
+  top-1          89.3%
+  top-5          97.8%
+  top-10         98.5%
+0.8337812058649225
+Cost time=28.30835199356079s
+Euclidean distance + urf
+Mean AP: 82.5%
+CMC Scores:
+  top-1          86.9%
+  top-5          97.4%
+  top-10         98.4%
+0.8245818892247234
+Cost time=28.362680196762085s
+k:  3
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[45.90553645 78.86339284]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.42898392677307s
+urf
+Mean AP: 79.2%
+CMC Scores:
+  top-1          79.4%
+  top-5          96.9%
+  top-10         98.0%
+0.7916601529401476
+Cost time=28.50154161453247s
+Euclidean distance +urf+cce
+Mean AP: 83.6%
+CMC Scores:
+  top-1          89.1%
+  top-5          97.8%
+  top-10         98.4%
+0.8360883969816936
+Cost time=28.18043041229248s
+Euclidean distance + urf
+Mean AP: 82.7%
+CMC Scores:
+  top-1          86.7%
+  top-5          97.5%
+  top-10         98.3%
+0.8269079624034348
+Cost time=28.165178775787354s
+k:  4
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[41.3883417  83.59280199]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.25478768348694s
+urf
+Mean AP: 79.5%
+CMC Scores:
+  top-1          79.7%
+  top-5          96.9%
+  top-10         97.9%
+0.7952218613903902
+Cost time=28.383896350860596s
+Euclidean distance +urf+cce
+Mean AP: 83.8%
+CMC Scores:
+  top-1          89.5%
+  top-5          97.7%
+  top-10         98.6%
+0.8381436818128262
+Cost time=28.32236623764038s
+Euclidean distance + urf
+Mean AP: 82.9%
+CMC Scores:
+  top-1          87.0%
+  top-5          97.6%
+  top-10         98.5%
+0.8294789702565797
+Cost time=28.391149282455444s
+k:  5
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[40.93921818 84.3413755 ]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.252415657043457s
+urf
+Mean AP: 80.0%
+CMC Scores:
+  top-1          80.4%
+  top-5          96.9%
+  top-10         97.9%
+0.799736297995939
+Cost time=28.313884496688843s
+Euclidean distance +urf+cce
+Mean AP: 84.2%
+CMC Scores:
+  top-1          90.4%
+  top-5          97.7%
+  top-10         98.5%
+0.8417605154308045
+Cost time=28.18922257423401s
+Euclidean distance + urf
+Mean AP: 83.2%
+CMC Scores:
+  top-1          87.3%
+  top-5          97.5%
+  top-10         98.5%
+0.8321194344212814
+Cost time=28.327409744262695s
+k:  6
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[41.27674281 84.60098957]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.434446573257446s
+urf
+Mean AP: 80.1%
+CMC Scores:
+  top-1          80.5%
+  top-5          96.9%
+  top-10         97.8%
+0.8009392232316446
+Cost time=28.42224144935608s
+Euclidean distance +urf+cce
+Mean AP: 84.2%
+CMC Scores:
+  top-1          90.1%
+  top-5          97.7%
+  top-10         98.5%
+0.8419532833792897
+Cost time=28.10892653465271s
+Euclidean distance + urf
+Mean AP: 83.3%
+CMC Scores:
+  top-1          87.5%
+  top-5          97.5%
+  top-10         98.4%
+0.8334250476209419
+Cost time=28.158200979232788s
+k:  7
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[44.23794401 82.31896241]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.387170791625977s
+urf
+Mean AP: 80.2%
+CMC Scores:
+  top-1          80.4%
+  top-5          96.7%
+  top-10         97.9%
+0.8022950741545287
+Cost time=28.21097683906555s
+Euclidean distance +urf+cce
+Mean AP: 84.5%
+CMC Scores:
+  top-1          90.6%
+  top-5          97.7%
+  top-10         98.5%
+0.844858319132261
+Cost time=28.28759002685547s
+Euclidean distance + urf
+Mean AP: 83.6%
+CMC Scores:
+  top-1          87.9%
+  top-5          97.4%
+  top-10         98.4%
+0.8355967581924553
+Cost time=28.162291049957275s
+k:  8
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[48.52893611 78.61074083]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.403387308120728s
+urf
+Mean AP: 80.4%
+CMC Scores:
+  top-1          80.9%
+  top-5          96.7%
+  top-10         97.8%
+0.8041836023725538
+Cost time=28.302244663238525s
+Euclidean distance +urf+cce
+Mean AP: 84.5%
+CMC Scores:
+  top-1          90.7%
+  top-5          97.6%
+  top-10         98.5%
+0.8445595792548626
+Cost time=28.38735294342041s
+Euclidean distance + urf
+Mean AP: 83.6%
+CMC Scores:
+  top-1          88.1%
+  top-5          97.4%
+  top-10         98.4%
+0.8363754016300449
+Cost time=28.19416570663452s
+k:  9
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[48.73193746 78.74218759]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.344953536987305s
+urf
+Mean AP: 80.6%
+CMC Scores:
+  top-1          80.9%
+  top-5          96.8%
+  top-10         97.9%
+0.8064198883576087
+Cost time=28.27870798110962s
+Euclidean distance +urf+cce
+Mean AP: 84.5%
+CMC Scores:
+  top-1          90.4%
+  top-5          97.6%
+  top-10         98.5%
+0.8448060363836161
+Cost time=28.430138111114502s
+Euclidean distance + urf
+Mean AP: 83.7%
+CMC Scores:
+  top-1          88.3%
+  top-5          97.4%
+  top-10         98.3%
+0.8373984651653644
+Cost time=28.324340105056763s
+k:  10
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[49.5725219  78.68902978]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.540425539016724s
+urf
+Mean AP: 80.8%
+CMC Scores:
+  top-1          80.5%
+  top-5          96.6%
+  top-10         98.0%
+0.8076446113022283
+Cost time=28.260722875595093s
+Euclidean distance +urf+cce
+Mean AP: 84.4%
+CMC Scores:
+  top-1          90.3%
+  top-5          97.7%
+  top-10         98.4%
+0.8440272383615586
+Cost time=28.31969451904297s
+Euclidean distance + urf
+Mean AP: 83.8%
+CMC Scores:
+  top-1          88.5%
+  top-5          97.5%
+  top-10         98.3%
+0.8376730093018121
+Cost time=28.294140577316284s
+k:  11
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[53.67776917 74.97352865]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.52148461341858s
+urf
+Mean AP: 80.8%
+CMC Scores:
+  top-1          80.1%
+  top-5          96.5%
+  top-10         97.9%
+0.80758252712542
+Cost time=28.248857259750366s
+Euclidean distance +urf+cce
+Mean AP: 84.4%
+CMC Scores:
+  top-1          90.5%
+  top-5          97.8%
+  top-10         98.4%
+0.8443219638140999
+Cost time=28.225215673446655s
+Euclidean distance + urf
+Mean AP: 83.7%
+CMC Scores:
+  top-1          88.6%
+  top-5          97.5%
+  top-10         98.3%
+0.8374137869705968
+Cost time=28.37498426437378s
+k:  12
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[51.61260999 77.44253285]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.39483880996704s
+urf
+Mean AP: 80.7%
+CMC Scores:
+  top-1          80.1%
+  top-5          96.7%
+  top-10         97.9%
+0.8073480219046374
+Cost time=28.314945697784424s
+Euclidean distance +urf+cce
+Mean AP: 84.5%
+CMC Scores:
+  top-1          90.5%
+  top-5          97.8%
+  top-10         98.4%
+0.8451170574377521
+Cost time=28.295958757400513s
+Euclidean distance + urf
+Mean AP: 83.7%
+CMC Scores:
+  top-1          88.3%
+  top-5          97.6%
+  top-10         98.3%
+0.8374105950141114
+Cost time=28.343866109848022s
+k:  13
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[59.70689992 69.78587615]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.479305744171143s
+urf
+Mean AP: 80.8%
+CMC Scores:
+  top-1          80.8%
+  top-5          96.6%
+  top-10         97.7%
+0.8078105461074173
+Cost time=28.309017419815063s
+Euclidean distance +urf+cce
+Mean AP: 84.4%
+CMC Scores:
+  top-1          91.0%
+  top-5          97.8%
+  top-10         98.5%
+0.8443943715628034
+Cost time=28.205196142196655s
+Euclidean distance + urf
+Mean AP: 83.6%
+CMC Scores:
+  top-1          88.8%
+  top-5          97.4%
+  top-10         98.4%
+0.8360302035534483
+Cost time=28.25930666923523s
+k:  14
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[60.497274 69.614363]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.443411350250244s
+urf
+Mean AP: 80.8%
+CMC Scores:
+  top-1          80.3%
+  top-5          96.5%
+  top-10         97.8%
+0.807715393742445
+Cost time=28.32457447052002s
+Euclidean distance +urf+cce
+Mean AP: 84.3%
+CMC Scores:
+  top-1          90.8%
+  top-5          97.9%
+  top-10         98.5%
+0.8429196392840024
+Cost time=28.48309564590454s
+Euclidean distance + urf
+Mean AP: 83.6%
+CMC Scores:
+  top-1          88.9%
+  top-5          97.5%
+  top-10         98.5%
+0.8355149964058247
+Cost time=28.25767421722412s
+k:  15
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[59.6004304  70.90566464]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.19292426109314s
+urf
+Mean AP: 80.7%
+CMC Scores:
+  top-1          80.4%
+  top-5          96.6%
+  top-10         97.8%
+0.8072336362670085
+Cost time=28.143797636032104s
+Euclidean distance +urf+cce
+Mean AP: 84.2%
+CMC Scores:
+  top-1          90.8%
+  top-5          97.9%
+  top-10         98.5%
+0.842235154863775
+Cost time=28.17725896835327s
+Euclidean distance + urf
+Mean AP: 83.5%
+CMC Scores:
+  top-1          88.8%
+  top-5          97.7%
+  top-10         98.4%
+0.8353475757968416
+Cost time=28.3205783367157s
+k:  16
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[60.32188142 70.75202051]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.22369146347046s
+urf
+Mean AP: 80.6%
+CMC Scores:
+  top-1          80.6%
+  top-5          96.3%
+  top-10         97.8%
+0.806260273744488
+Cost time=28.137340545654297s
+Euclidean distance +urf+cce
+Mean AP: 84.2%
+CMC Scores:
+  top-1          90.9%
+  top-5          97.8%
+  top-10         98.5%
+0.8418678667773746
+Cost time=28.289417028427124s
+Euclidean distance + urf
+Mean AP: 83.4%
+CMC Scores:
+  top-1          88.7%
+  top-5          97.6%
+  top-10         98.3%
+0.8344852145585694
+Cost time=28.43242335319519s
+k:  17
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[62.58813831 69.0193746 ]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.515328645706177s
+urf
+Mean AP: 80.4%
+CMC Scores:
+  top-1          80.1%
+  top-5          96.3%
+  top-10         97.8%
+0.8044281604276919
+Cost time=28.176158666610718s
+Euclidean distance +urf+cce
+Mean AP: 84.1%
+CMC Scores:
+  top-1          90.7%
+  top-5          97.8%
+  top-10         98.4%
+0.8405089864055078
+Cost time=28.068305730819702s
+Euclidean distance + urf
+Mean AP: 83.4%
+CMC Scores:
+  top-1          88.9%
+  top-5          97.6%
+  top-10         98.3%
+0.8335279063638162
+Cost time=28.222875833511353s
+k:  18
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+[65.08930165 66.52691299]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.314334869384766s
+urf
+Mean AP: 80.3%
+CMC Scores:
+  top-1          80.2%
+  top-5          96.4%
+  top-10         97.7%
+0.8026770269337394
+Cost time=28.168190479278564s
+Euclidean distance +urf+cce
+Mean AP: 83.9%
+CMC Scores:
+  top-1          90.6%
+  top-5          97.6%
+  top-10         98.5%
+0.8388678214097056
+Cost time=28.06751823425293s
+Euclidean distance + urf
+Mean AP: 83.2%
+CMC Scores:
+  top-1          88.7%
+  top-5          97.4%
+  top-10         98.3%
+0.8319973678133339
+Cost time=28.310415029525757s
+k:  19

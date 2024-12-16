@@ -514,7 +514,7 @@ if __name__ == '__main__':
     parser.add_argument('--rr-gpu', action='store_true',
                         help="use GPU for accelerating clustering")
     parser.add_argument('--init-1', type=str,
-                        default='/hgst/longdn/UCF-main/logs/pretrained/market2msmt/model_best.pth.tar',
+                        default='/hgst/longdn/UCF-main/logs/pretrained/market2duke/model_best.pth.tar',
                         metavar='PATH')
 
     parser.add_argument('--seed', type=int, default=1)
@@ -527,7 +527,7 @@ if __name__ == '__main__':
                         default=osp.join(working_dir, 'data'))
     parser.add_argument('--logs-dir', type=str, metavar='PATH',
                         default=osp.join(working_dir,
-                                         '/hgst/longdn/UCF-main/logs/dbscan/market2msmt/'))
+                                         '/hgst/longdn/UCF-main/logs/dbscan/market2duke/'))
     parser.add_argument('--log-name',type=str,default='')
 
     # UCF setting

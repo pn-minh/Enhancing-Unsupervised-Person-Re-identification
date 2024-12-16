@@ -79,15 +79,15 @@ To evaluate WDA on the **target-domain** dataset, run:
 ```shell
 CUDA_VISIBLE_DEVICES=0,1 \
 python sbstest.py  \
-  -dt $DATASET --init-1 $PATH_OF_MODEL
+  -dt $DATASET --init-1 $PATH_OF_MODEL --log-dir $PATH_OF_LOGS
 ```
 
 **Some examples:**
 ```shell
 ### Market-1501 -> Duke ###
 # test on the target domain
-CUDA_VISIBLE_DEVICES=0,1 \
-python3 WDA.py --dt duke --init-1 logs/dbscan/market2duke/model_best.pth.tar
+CUDA_VISIBLE_DEVICES=0,1 \ 
+python3 WDA.py --dt duke --init-1 logs/dbscan/market2duke/model_best.pth.tar --log-dir /hgst/longdn/UCF-main/logs/WDA/market2duke/
 ```
 
 

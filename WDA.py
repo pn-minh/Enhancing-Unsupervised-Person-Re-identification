@@ -760,7 +760,7 @@ if __name__ == '__main__':
     working_dir = osp.dirname(osp.abspath(__file__))
     parser.add_argument('--logs-dir', type=str, metavar='PATH',
                         default=osp.join(working_dir,
-                                         '/hgst/longdn/UCF-main/logs/WDA1/market2duke/'))
+                                         '/hgst/longdn/UCF-main/logs/WDA/market2duke/'))
 
     parser.add_argument('--data-dir', type=str, metavar='PATH',
                         default=osp.join(working_dir, 'data'))

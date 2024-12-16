@@ -1,0 +1,61 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/market2duke/120924_2116_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=10, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+Cosin+urf+cce
+Mean AP: 74.5%
+CMC Scores:
+  top-1          84.7%
+  top-5          92.1%
+  top-10         93.9%
+0.7446524075606392
+Cost time=24.75946855545044s
+Euclidean distance + urf
+Mean AP: 73.5%
+CMC Scores:
+  top-1          83.6%
+  top-5          91.5%
+  top-10         93.6%
+0.7349950483809586
+Cost time=24.67763662338257s
+k:  2
+Cosin+urf+cce
+Mean AP: 75.9%
+CMC Scores:
+  top-1          84.4%
+  top-5          91.7%
+  top-10         93.9%
+0.7592306620324011
+Cost time=24.845505475997925s
+Euclidean distance + urf
+Mean AP: 75.3%
+CMC Scores:
+  top-1          83.8%
+  top-5          91.3%
+  top-10         93.5%
+0.7533758936745378
+Cost time=24.788703680038452s
+k:  3
+Cosin+urf+cce
+Mean AP: 76.3%
+CMC Scores:
+  top-1          83.2%
+  top-5          91.3%
+  top-10         93.7%
+0.7631993360726302
+Cost time=24.624374628067017s
+Euclidean distance + urf
+Mean AP: 76.1%
+CMC Scores:
+  top-1          82.9%
+  top-5          91.2%
+  top-10         93.6%
+0.7610122614065225
+Cost time=24.80087971687317s
+k:  4

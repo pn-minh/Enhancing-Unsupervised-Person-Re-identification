@@ -1,0 +1,27 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/121024_1937_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extracting features...
+Extract Features: [100/151]	Time 0.143 (0.151)	Data 0.000 (0.004)	
+Re-ranking not applied.
+Mean AP: 83.6%
+CMC Scores:
+  top-1          93.6%
+  top-5          97.7%
+  top-10         98.5%

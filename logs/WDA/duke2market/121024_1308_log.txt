@@ -1,0 +1,91 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/121024_1308_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.142 (0.150)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 42.54774022102356
+Extract Features: [100/102]	Time 0.142 (0.146)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 41.66686463356018
+Applying hierarchical clustering
+reCluster!use silhouette score and tao=0.0
+[532 385 371 ... 486 594  73]
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=0.6676051616668701s
+Applying hierarchical clustering
+reCluster!use silhouette score and tao=0.0
+[532 385 371 ... 486 594  73]
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=0.6694629192352295s
+The HC Re-cluster result: num cluster = 769(model) // 769(model_ema) 	 num outliers = 557(model) // 557(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.40574121475219727s
+The UCIS result: num clean cluster = 769(model) 	 num outliers = 557(model)
+mdoel:new class are [770], length of new dataset is 12379
+Euclidean distance
+Mean AP: 77.4%
+CMC Scores:
+  top-1          86.7%
+  top-5          97.2%
+  top-10         98.2%
+0.7741537324896351
+Cost time=28.28682827949524s
+urf
+Mean AP: 75.7%
+CMC Scores:
+  top-1          76.2%
+  top-5          96.1%
+  top-10         97.4%
+0.7572433236471824
+Cost time=28.934945821762085s
+Euclidean distance +urf+cce
+tensor([[233.0131, 291.7714, 243.2354,  ..., 266.9924, 290.0258, 211.3956],
+        [195.0186, 220.1447, 231.5974,  ..., 274.5518, 199.0705, 199.6207],
+        [229.8902, 310.5375, 217.2860,  ..., 233.0879, 258.2923, 243.6471],
+        ...,
+        [261.8156, 260.8215, 232.6142,  ..., 237.1213, 237.7919, 204.4536],
+        [206.3809, 157.3799, 214.4969,  ..., 247.7866, 216.4844, 257.4730],
+        [218.3172, 136.4977, 210.5197,  ..., 146.2680, 214.1905, 284.9999]])
+Mean AP: 80.8%
+CMC Scores:
+  top-1          87.9%
+  top-5          97.2%
+  top-10         98.2%
+0.8080431874370512
+Cost time=28.319014310836792s
+Euclidean distance + urf
+tensor([[745.1511, 793.6398, 755.2905,  ..., 778.6247, 791.5333, 723.4419],
+        [707.3786, 732.0474, 733.0615,  ..., 785.9744, 711.0215, 711.0476],
+        [742.0326, 822.0463, 729.3856,  ..., 744.6992, 770.3770, 755.1029],
+        ...,
+        [773.9581, 772.5209, 744.6130,  ..., 748.5907, 749.2292, 715.7307],
+        [708.2170, 670.3421, 726.7407,  ..., 759.0614, 728.5041, 769.3471],
+        [730.4157, 649.4875, 722.7615,  ..., 647.7425, 726.4072, 796.7922]])
+Mean AP: 79.8%
+CMC Scores:
+  top-1          85.8%
+  top-5          97.0%
+  top-10         98.0%
+0.7979318045818337
+Cost time=28.476222276687622s
+k:  2

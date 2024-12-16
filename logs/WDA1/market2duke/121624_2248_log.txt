@@ -1,0 +1,46 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/market2duke/121624_2248_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+Weights: [51.55188532 69.12326566]
+Bias: -148.75396434903786
+<class 'list'>
+tensor([6.6717e-06, 8.6952e-03, 2.3715e-03,  ..., 5.7951e-02, 6.1254e-02,
+        5.8493e-02])
+2228
+[51.55188532 69.12326566]
+Euclidean distance
+Mean AP: 71.6%
+CMC Scores:
+  top-1          83.9%
+  top-5          91.8%
+  top-10         93.6%
+0.7162512982567761
+Cost time=25.42528486251831s
+urf
+Mean AP: 76.2%
+CMC Scores:
+  top-1          79.0%
+  top-5          89.9%
+  top-10         92.8%
+0.7621881305567298
+Cost time=25.35031795501709s
+Euclidean distance +urf+cce
+Mean AP: 77.3%
+CMC Scores:
+  top-1          84.1%
+  top-5          91.4%
+  top-10         93.4%
+0.7728979659800267
+Cost time=25.00227427482605s
+Euclidean distance + urf
+Mean AP: 77.4%
+CMC Scores:
+  top-1          84.3%
+  top-5          91.6%
+  top-10         93.4%
+0.773882838401942
+Cost time=24.662041902542114s
+k:  8

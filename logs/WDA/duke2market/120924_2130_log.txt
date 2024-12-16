@@ -1,0 +1,96 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/120924_2130_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=10, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+Cosin+urf+cce
+Mean AP: 80.9%
+CMC Scores:
+  top-1          87.4%
+  top-5          97.2%
+  top-10         98.2%
+0.8093181905896495
+Cost time=28.27569556236267s
+Euclidean distance + urf
+Mean AP: 79.8%
+CMC Scores:
+  top-1          85.5%
+  top-5          97.0%
+  top-10         98.0%
+0.7983524726070845
+Cost time=28.021088123321533s
+k:  2
+Cosin+urf+cce
+Mean AP: 81.3%
+CMC Scores:
+  top-1          86.8%
+  top-5          97.1%
+  top-10         98.0%
+0.8126572891850351
+Cost time=28.34403133392334s
+Euclidean distance + urf
+Mean AP: 80.4%
+CMC Scores:
+  top-1          84.9%
+  top-5          96.9%
+  top-10         97.9%
+0.8044082514998886
+Cost time=28.21459412574768s
+k:  3
+Cosin+urf+cce
+Mean AP: 81.0%
+CMC Scores:
+  top-1          85.5%
+  top-5          97.0%
+  top-10         98.1%
+0.8097350120337173
+Cost time=28.104188442230225s
+Euclidean distance + urf
+Mean AP: 80.3%
+CMC Scores:
+  top-1          83.0%
+  top-5          96.7%
+  top-10         98.0%
+0.8027882186991977
+Cost time=28.185665130615234s
+k:  4
+Cosin+urf+cce
+Mean AP: 80.8%
+CMC Scores:
+  top-1          84.7%
+  top-5          96.9%
+  top-10         98.0%
+0.8084249531484263
+Cost time=28.1336088180542s
+Euclidean distance + urf
+Mean AP: 80.6%
+CMC Scores:
+  top-1          84.0%
+  top-5          96.8%
+  top-10         98.0%
+0.8062995524944772
+Cost time=28.06759524345398s
+k:  5
+Cosin+urf+cce
+Mean AP: 81.6%
+CMC Scores:
+  top-1          86.4%
+  top-5          96.9%
+  top-10         98.0%
+0.8156888786586797
+Cost time=28.151843070983887s
+Euclidean distance + urf
+Mean AP: 80.9%
+CMC Scores:
+  top-1          84.5%
+  top-5          96.6%
+  top-10         97.9%
+0.80887537035148
+Cost time=28.081852436065674s
+k:  6
+Cosin+urf+cce

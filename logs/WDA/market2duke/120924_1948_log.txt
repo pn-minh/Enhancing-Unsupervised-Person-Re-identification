@@ -1,0 +1,65 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/market2duke/120924_1948_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best_fails.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best_fails.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best_fails.pth.tar', k1=25, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best_fails.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best_fails.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best_fails.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best_fails.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best_fails.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best_fails.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Extract Features: [100/130]	Time 0.293 (0.302)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([16522, 16522])
+25
+Jaccard distance computing time cost: 102.86295461654663
+Extract Features: [100/130]	Time 0.147 (0.146)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([16522, 16522])
+25
+Jaccard distance computing time cost: 47.11978507041931
+1
+reCluster!use silhouette score and tao=0.0
+each uncer num= [8890, 865, 690, 983, 892, 766, 758, 621, 416, 338, 85, 47] average= 1279.25 uncer_average= -0.006453969
+torch.Size([8890, 8890])
+25
+torch.Size([865, 865])
+25
+torch.Size([690, 690])
+25
+torch.Size([983, 983])
+25
+torch.Size([892, 892])
+25
+torch.Size([766, 766])
+25
+torch.Size([758, 758])
+25
+torch.Size([621, 621])
+25
+torch.Size([416, 416])
+25
+torch.Size([338, 338])
+25
+torch.Size([85, 85])
+25
+torch.Size([47, 47])
+25
+HC finish! Cost time=53.41470718383789s
+reCluster!use silhouette score and tao=0.0
+each uncer num= [8890, 865, 690, 983, 892, 766, 758, 621, 416, 338, 85, 47] average= 1279.25 uncer_average= -0.006453969
+torch.Size([8890, 8890])
+25
+torch.Size([865, 865])
+25
+torch.Size([690, 690])
+25

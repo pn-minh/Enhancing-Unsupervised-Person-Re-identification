@@ -1,0 +1,64 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/121024_0151_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.302 (0.304)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 76.38906002044678
+Extract Features: [100/102]	Time 0.142 (0.145)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+30
+Jaccard distance computing time cost: 42.06898736953735
+Applying hierarchical clustering
+reCluster!use silhouette score and tao=0.0
+[532 385 371 ... 486 594  73]
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=0.6732165813446045s
+Applying hierarchical clustering
+reCluster!use silhouette score and tao=0.0
+[532 385 371 ... 486 594  73]
+each uncer num= [] average= nan uncer_average= nan
+HC finish! Cost time=0.6726856231689453s
+The HC Re-cluster result: num cluster = 769(model) // 769(model_ema) 	 num outliers = 557(model) // 557(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.405109167098999s
+The UCIS result: num clean cluster = 769(model) 	 num outliers = 557(model)
+mdoel:new class are [770], length of new dataset is 12379
+Euclidean distance: 1.4359352588653564
+Weights: [83.14035396 40.62544052]
+Bias: -77.61618952727555
+Euclidean distance +urf+cce
+Mean AP: 81.2%
+CMC Scores:
+  top-1          88.0%
+  top-5          97.3%
+  top-10         98.2%
+0.8121986034925632
+Cost time=27.935686349868774s
+Euclidean distance + urf
+Mean AP: 79.8%
+CMC Scores:
+  top-1          85.6%
+  top-5          97.0%
+  top-10         98.0%
+0.7979073848284054
+Cost time=28.06044054031372s
+k:  2

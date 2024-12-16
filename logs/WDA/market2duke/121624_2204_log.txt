@@ -1,0 +1,27 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/market2duke/121624_2204_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='duke', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/market2duke/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/market2duke/model_best.pth.tar
+=> Dukemtmc loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   702 |    16522 |         8
+  query    |   702 |     2228 |         8
+  gallery  |  1110 |    17661 |         8
+  ----------------------------------------
+Weights: [75.83844174 44.55927069]
+Bias: -157.45518207521445
+Weights: [68.94838461 51.28553778]
+Bias: -155.03273831850697
+Weights: [60.8087294  59.19755942]
+Bias: -152.65587273867197
+Weights: [62.26349701 58.17681565]
+Bias: -152.23105549894711

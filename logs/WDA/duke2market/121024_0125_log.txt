@@ -1,0 +1,1 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/121024_0125_log.txt

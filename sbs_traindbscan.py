@@ -77,7 +77,6 @@ def get_train_loader(dataset, height, width, choice_c, batch_size, workers,
                    shuffle=not rmgs_flag, pin_memory=True, drop_last=True), length=iters)
     return train_loader
 
-
 def get_test_loader(dataset, height, width, batch_size, workers, testset=None):
     test_transformer = T.Compose([
         T.Resize((height, width), interpolation=3),
@@ -94,7 +93,6 @@ def get_test_loader(dataset, height, width, batch_size, workers, testset=None):
         shuffle=False, pin_memory=True)
 
     return test_loader
-
 
 def copy_state_dict(state_dict, model, strip=None):
     tgt_state = model.state_dict()
@@ -118,7 +116,6 @@ def copy_state_dict(state_dict, model, strip=None):
         print("missing keys in state_dict:", missing)
 
     return model
-
 
 def create_model(args, ncs, wopre=False):
     model_1 = models.create(args.arch, num_features=args.features, dropout=args.dropout,
@@ -153,8 +150,6 @@ def main():
         cudnn.deterministic = True
 
     main_worker(args)
-
-
 
 def func(x, a, b, c):
     return a * np.exp(-b * x) + c
@@ -200,11 +195,10 @@ def reCluster(target_features,pseudo_labels,uncer_id, max_class,args,sc_score_sa
         re_cluster = DBSCAN(eps=0.4, min_samples=4, metric='precomputed', n_jobs=-1)
         uncer_cluster_index = (pseudo_labels == id).nonzero()
         feature_recluster = target_features[uncer_cluster_index].squeeze(1)
-        rerank_dist_1 = compute_jaccard_distance(feature_recluster, k1=args.k1, k2=args.k2,print_flag=False)
+        rerank_dist_1 = compute_jaccard_distance(feature_recluster, k1=args.k1, k2=args.k2,print_flag=False,search_option = 3 )
         torch.cuda.empty_cache()
         re_pseudo_labels = re_cluster.fit_predict(rerank_dist_1)
         temp_labels[uncer_cluster_index] = refine_label(re_pseudo_labels, max_class, count)
-        # print('the uncer_id {} (include {} samples) re-cluster into {} new clusters,which is id {}'.format(id,len(uncer_cluster_index[0]),len(set(re_pseudo_labels)),set(re_pseudo_labels)))
         count += 1
     return temp_labels
 
@@ -267,7 +261,7 @@ def main_worker(args):
         if epoch % 1 == 0:
             print('==> Create pseudo labels for unlabeled target domain with model')
             target_features = get_features(model,tar_cluster_loader)
-            rerank_dist = compute_jaccard_distance(target_features, k1=args.k1, k2=args.k2)
+            rerank_dist = compute_jaccard_distance(target_features, k1=args.k1, k2=args.k2, search_option= 3)
             torch.cuda.empty_cache()
             # pseudo_labels = cluster.fit_predict(rerank_dist.astype('double'))#numbel label
             # pl = pseudo_labels.copy()
@@ -298,7 +292,7 @@ def main_worker(args):
 
             print('==> Create pseudo labels for unlabeled target domain with model_ema')
             target_features_ema = get_features(model_ema,tar_cluster_loader)
-            rerank_dist_ema = compute_jaccard_distance(target_features_ema, k1=args.k1, k2=args.k2)
+            rerank_dist_ema = compute_jaccard_distance(target_features_ema, k1=args.k1, k2=args.k2, search_option= 3)
             torch.cuda.empty_cache()
             # pseudo_labels_ema = cluster.fit_predict(rerank_dist_ema.astype('double'))
             # pl_ema = pseudo_labels_ema.copy()
@@ -472,13 +466,12 @@ def main_worker(args):
     model.load_state_dict(checkpoint['state_dict'])
     evaluator.evaluate(test_loader_target, dataset_target.query, dataset_target.gallery, cmc_flag=True)
 
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="UCF Training")
     # data
-    parser.add_argument('-st', '--dataset-source', type=str, default='market1501',
+    parser.add_argument('-ds', '--dataset-source', type=str, default='market1501',
                         choices=datasets.names())
-    parser.add_argument('-tt', '--dataset-target', type=str, default='msmt17',
+    parser.add_argument('-dt', '--dataset-target', type=str, default='duke',
                         choices=datasets.names())
     parser.add_argument('-b', '--batch-size', type=int, default=128)
     parser.add_argument('-j', '--workers', type=int, default=6)
@@ -544,4 +537,3 @@ if __name__ == '__main__':
                         help="active the uncertainty-aware collaborative instance selection (UCIS) method")
 
     main()
-# CUDA_VISIBLE_DEVICES=0 python sbs_traindbscan.py  -st market1501 -tt duke --logs-dir logs/dbscan/market2duke --init-1 /hgst/longdn/UCF-main/logs/pretrained/market2duke/model_best.pth.tar --HC --UCIS

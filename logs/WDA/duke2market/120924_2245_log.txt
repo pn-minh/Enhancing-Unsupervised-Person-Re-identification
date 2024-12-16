@@ -1,0 +1,101 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/120924_2245_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=10, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Extract Features: [100/102]	Time 0.205 (0.198)	Data 0.000 (0.005)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+10
+Jaccard distance computing time cost: 93.77575659751892
+Extract Features: [100/102]	Time 0.149 (0.152)	Data 0.000 (0.003)	
+Computing jaccard distance...
+torch.Size([12936, 12936])
+10
+Jaccard distance computing time cost: 96.63968563079834
+Applying hierarchical clustering
+reCluster!use silhouette score and tao=0.0
+[2 2 2 ... 1 1 1]
+each uncer num= [5946, 4275, 1207, 212, 250, 347, 72, 19, 12, 15] average= 1235.5 uncer_average= -0.0053638974
+tensor([[ 0.0015, -0.0004,  0.0001,  ..., -0.0315, -0.0052, -0.0052],
+        [ 0.0247,  0.0360,  0.0044,  ...,  0.0146, -0.0137, -0.0081],
+        [ 0.0004, -0.0208, -0.0078,  ..., -0.0246, -0.0381, -0.0340],
+        ...,
+        [ 0.0357, -0.0147,  0.0156,  ..., -0.0172,  0.0027, -0.0178],
+        [-0.0388,  0.0082, -0.0002,  ..., -0.0157, -0.0396,  0.0021],
+        [-0.0164,  0.0039, -0.0300,  ..., -0.0139, -0.0400, -0.0490]]) [ 2  2  2 ...  1  1 -1] [0, 1, 2, 3, 4, 5, 6, 9, 10, 12] 12 Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=10, k2=6, HC=True, UCIS=True) [-0.00122029 -0.00190611 -0.00212278 ... -0.00362064 -0.0014306
+ -0.00371395]
+torch.Size([5946, 5946])
+10
+torch.Size([4275, 4275])
+10
+torch.Size([1207, 1207])
+10
+torch.Size([212, 212])
+10
+torch.Size([250, 250])
+10
+torch.Size([347, 347])
+10
+torch.Size([72, 72])
+10
+torch.Size([19, 19])
+10
+torch.Size([12, 12])
+10
+torch.Size([15, 15])
+10
+HC finish! Cost time=92.38246583938599s
+Applying hierarchical clustering
+reCluster!use silhouette score and tao=0.0
+[2 2 2 ... 1 1 1]
+each uncer num= [5946, 4275, 1207, 212, 250, 347, 72, 19, 12, 15] average= 1235.5 uncer_average= -0.0053638974
+tensor([[ 0.0015, -0.0004,  0.0001,  ..., -0.0315, -0.0052, -0.0052],
+        [ 0.0247,  0.0360,  0.0044,  ...,  0.0146, -0.0137, -0.0081],
+        [ 0.0004, -0.0208, -0.0078,  ..., -0.0246, -0.0381, -0.0340],
+        ...,
+        [ 0.0357, -0.0147,  0.0156,  ..., -0.0172,  0.0027, -0.0178],
+        [-0.0388,  0.0082, -0.0002,  ..., -0.0157, -0.0396,  0.0021],
+        [-0.0164,  0.0039, -0.0300,  ..., -0.0139, -0.0400, -0.0490]]) [ 2  2  2 ...  1  1 -1] [0, 1, 2, 3, 4, 5, 6, 9, 10, 12] 12 Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=10, k2=6, HC=True, UCIS=True) [-0.00122029 -0.00190611 -0.00212278 ... -0.00362064 -0.0014306
+ -0.00371395]
+torch.Size([5946, 5946])
+10
+torch.Size([4275, 4275])
+10
+torch.Size([1207, 1207])
+10
+torch.Size([212, 212])
+10
+torch.Size([250, 250])
+10
+torch.Size([347, 347])
+10
+torch.Size([72, 72])
+10
+torch.Size([19, 19])
+10
+torch.Size([12, 12])
+10
+torch.Size([15, 15])
+10
+HC finish! Cost time=112.8731849193573s
+The HC Re-cluster result: num cluster = 594(model) // 594(model_ema) 	 num outliers = 2866(model) // 2866(model_ema)
+Applying uncertainty-aware collaborative instance selection
+UCIS finish! Cost time=0.4166131019592285s
+The UCIS result: num clean cluster = 594(model) 	 num outliers = 2866(model)
+mdoel:new class are [595], length of new dataset is 10070
+Euclidean distance: 1.4421831369400024

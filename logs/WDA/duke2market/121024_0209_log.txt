@@ -1,0 +1,41 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/121024_0209_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+Euclidean distance +urf+cce
+tensor([[ 95.5211, 109.0976,  97.3355,  ..., 101.4985, 108.8644,  91.6538],
+        [ 88.6152,  93.2477,  98.6786,  ..., 102.8018,  89.4100,  89.5221],
+        [ 94.9658, 108.8352,  92.7135,  ...,  95.5778,  99.9555,  97.4479],
+        ...,
+        [100.5557, 100.4314,  95.4669,  ...,  96.2962,  96.4151,  90.4042],
+        [ 94.0384,  81.3854,  92.1910,  ...,  98.1743,  92.5775,  99.8379],
+        [ 92.8994,  77.3033,  91.4708,  ...,  82.5891,  92.1395, 104.5514]])
+Mean AP: 0.0%
+CMC Scores:
+  top-1           0.0%
+  top-5           0.0%
+  top-10          0.0%
+0.00040267861060979456
+Cost time=28.338404417037964s
+Euclidean distance + urf
+tensor([[ -96.4582, -104.7971,  -98.2566,  ..., -102.3432, -104.5011,
+          -92.5763],
+        [ -89.5983,  -94.1432,  -94.3139,  ..., -103.6100,  -90.3158,
+          -90.3311],
+        [ -95.9040, -109.6565,  -93.6453,  ...,  -96.4202, -100.8801,
+          -98.2624],
+        ...,
+        [-101.4901, -101.2881,  -96.3789,  ...,  -97.1132,  -97.2264,
+          -91.1861],
+        [ -89.7459,  -82.4933,  -93.1497,  ...,  -98.9571,  -93.4948,
+         -100.7255],
+        [ -93.8310,  -78.4222,  -92.4296,  ...,  -78.2320,  -93.0932,
+         -105.4224]])
+Mean AP: 79.8%
+CMC Scores:
+  top-1          85.6%
+  top-5          97.0%
+  top-10         98.0%
+0.7979073848284054
+Cost time=28.119783878326416s
+k:  2

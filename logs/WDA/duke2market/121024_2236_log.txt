@@ -1,0 +1,104 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/121024_2236_log.txt
+==========
+Args:Namespace(seed=1, dataset_target='market1501', logs_dir='/hgst/longdn/UCF-main/logs/WDA1/duke2market/', data_dir='/hgst/longdn/UCF-main/data', ncs='60', height=256, width=128, features=0, batch_size=128, workers=6, arch='resnet50', dropout=0, init_1='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_2='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', init_3='/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar', k1=30, k2=6, HC=True, UCIS=True)
+==========
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model_ema:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Loaded checkpoint '/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar'
+load pretrain model1:/hgst/longdn/UCF-main/logs/dbscan/duke2market/model_best.pth.tar
+=> Market1501 loaded
+Dataset statistics:
+  ----------------------------------------
+  subset   | # ids | # images | # cameras
+  ----------------------------------------
+  train    |   751 |    12936 |         6
+  query    |   750 |     3368 |         6
+  gallery  |   751 |    15913 |         6
+  ----------------------------------------
+Weights: [63.97827846 60.35426641]
+Bias: -150.5551351659939
+Weights: [51.91004648 72.78633853]
+Bias: -147.14551770865455
+Weights: [45.90553645 78.86339284]
+Bias: -144.7515535435364
+Weights: [41.3883417  83.59280199]
+Bias: -142.94951737906203
+Weights: [40.93921818 84.3413755 ]
+Bias: -142.31674164810607
+Weights: [41.27674281 84.60098957]
+Bias: -141.91244661602082
+Weights: [44.23794401 82.31896241]
+Bias: -142.3700268688304
+Weights: [48.52893611 78.61074083]
+Bias: -143.33277731218018
+Weights: [48.73193746 78.74218759]
+Bias: -143.19948972015064
+Weights: [49.5725219  78.68902978]
+Bias: -143.32023054270974
+Weights: [53.67776917 74.97352865]
+Bias: -144.501468768325
+Weights: [51.61260999 77.44253285]
+Bias: -144.1527022700352
+Weights: [59.70689992 69.78587615]
+Bias: -146.02910924051758
+Weights: [60.497274 69.614363]
+Bias: -146.43433415354338
+Weights: [59.6004304  70.90566464]
+Bias: -146.55133137326442
+Weights: [60.32188142 70.75202051]
+Bias: -146.97116154866603
+Weights: [62.58813831 69.0193746 ]
+Bias: -147.76427737465593
+Weights: [65.08930165 66.52691299]
+Bias: -148.19198936401688
+<class 'list'>
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+3368
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+torch.Size([3368, 2048])
+3368 19732
+tensor([ 0.0178, -0.0004,  0.0311,  ...,  0.0250, -0.0241,  0.0213])
+torch.Size([3368, 2048])
+3368 19732
+[63.97827846 60.35426641]
+Euclidean distance
+Mean AP: 79.5%
+CMC Scores:
+  top-1          88.4%
+  top-5          97.6%
+  top-10         98.2%
+0.7949822907657278
+Cost time=28.57239294052124s
+urf
+Mean AP: 78.2%
+CMC Scores:
+  top-1          78.6%
+  top-5          96.9%
+  top-10         98.2%
+0.7823773968550932
+Cost time=28.891067028045654s
+Euclidean distance +urf+cce
+tensor([[104.1769, 122.8056,  99.5063,  ..., 111.1062, 120.4121,  78.6337],
+        [ 63.0196,  89.4644,  82.4376,  ..., 123.2612,  76.9236,  87.9679],
+        [ 98.7348, 131.4848,  78.8404,  ...,  90.0415, 109.6071, 110.3218],
+        ...,
+        [112.4610,  93.4156,  89.4256,  ...,  81.3423,  87.0997,  81.3654],
+        [ 77.2225,  51.7291,  78.0658,  ..., 109.8346,  85.8786, 118.0292],
+        [ 85.0287,  38.3182,  78.5452,  ...,  30.6652,  73.0643, 102.0018]])
+Mean AP: 83.1%
+CMC Scores:
+  top-1          89.4%
+  top-5          97.8%
+  top-10         98.4%
+0.8309978374753623
+Cost time=28.343300342559814s
+Euclidean distance + urf
+tensor([[406.3699, 418.1663, 401.7111,  ..., 413.2890, 415.8011, 380.9081],
+        [365.3190, 391.6937, 377.9606,  ..., 425.4077, 379.2094, 390.2142],
+        [400.9567, 433.6030, 381.1072,  ..., 392.2903, 411.7770, 412.4984],
+        ...,
+        [414.6267, 395.6398, 391.6598,  ..., 383.6164, 389.3547, 383.6483],
+        [372.7446, 354.0654, 380.3358,  ..., 412.0251, 388.1290, 420.1802],
+        [387.2914, 340.7022, 380.8099,  ..., 326.3445, 375.3721, 404.2237]])

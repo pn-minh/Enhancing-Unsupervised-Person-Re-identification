@@ -1,0 +1,27 @@
+Logging to /hgst/longdn/UCF-main/logs/WDA1/duke2market/121024_0053_log.txt
+Cosin+urf+cce
+Mean AP: 81.2%
+CMC Scores:
+  top-1          88.0%
+  top-5          97.3%
+  top-10         98.2%
+0.8121986034925632
+Cost time=28.34040403366089s
+Euclidean distance + urf
+Mean AP: 79.8%
+CMC Scores:
+  top-1          85.6%
+  top-5          97.0%
+  top-10         98.0%
+0.7979073848284054
+Cost time=28.128280878067017s
+k:  2
+Cosin+urf+cce
+Mean AP: 81.6%
+CMC Scores:
+  top-1          87.4%
+  top-5          97.1%
+  top-10         98.0%
+0.8164468844655813
+Cost time=27.954781770706177s
+Euclidean distance + urf
